@@ -65,24 +65,38 @@ const ServicesSection = () => {
             Nossos Serviços
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-floral-burgundy animate-on-scroll">
-            Florindo Momentos Especiais
+            Dando Vida às Suas Memórias
           </h2>
           <p className="text-floral-burgundy/80 max-w-2xl mx-auto animate-on-scroll">
-            Oferecemos serviços florais personalizados para todos os momentos da vida, 
-            com atendimento ágil e humano em todo o Brasil.
+            Porque alguns momentos merecem ser lembrados para sempre, oferecemos um serviço de produção e entrega profissional que transforma seus momentos em momentos emocionantes e cheios de significado.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-          {services.map((service, index) => (
-            <ServiceCard 
-              key={index} 
-              icon={service.icon} 
-              title={service.title} 
-              description={service.description} 
-              index={index} 
-            />
-          ))}
+          <ServiceCard 
+            icon={services[0].icon}
+            title="QUALIDADE ESPETACULAR"
+            description="Produções impecáveis com os melhores produtos e flores para resultados incríveis."
+            index={0}
+          />
+          <ServiceCard 
+            icon={services[1].icon}
+            title="EMOÇÕES"
+            description="Proporcionamos não apenas momentos, mas também sentimentos, expressões e detalhes que fazem toda a diferença."
+            index={1}
+          />
+          <ServiceCard 
+            icon={services[2].icon}
+            title="PRODUÇÃO PROFISSIONAL"
+            description="Com técnica e criatividade, produzimos os melhores produtos para proporcionar momentos incríveis e emoções únicas."
+            index={2}
+          />
+          <ServiceCard 
+            icon={services[3].icon}
+            title="QUANDO NOS CONTRATAR?"
+            description="Em qualquer momento, estamos prontos para atender suas necessidades com produtos de qualidade e entregas pontuais."
+            index={3}
+          />
         </div>
 
         <div className="mt-16 text-center animate-on-scroll">

@@ -34,11 +34,10 @@ const AboutSection = () => {
             Sobre Nós
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 animate-on-scroll">
-            Conhecimento e Experiência para o Sucesso do seu Negócio
+            Transformamos momentos em arte e histórias em memórias inesquecíveis
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto animate-on-scroll">
-            Mais que um escritório contábil, somos um parceiro estratégico comprometido com
-            o crescimento sustentável da sua empresa.
+            Mais do que Floricultura, somos contadores de histórias que capturam a essência de cada instante com sensibilidade e perfeição.
           </p>
         </div>
 
@@ -46,20 +45,20 @@ const AboutSection = () => {
           <div className="space-y-6">
             <div className="animate-on-scroll">
               <h3 className="text-2xl font-bold mb-4">
-                Conte com uma Contabilidade Harmônica
+                Escolha a excelência. Escolha viver seus momentos através dos nossos produtos.
               </h3>
               <p className="text-muted-foreground mb-6">
-                Desde 2010, ajudamos empresas de todos os tamanhos a otimizar suas operações
-                financeiras e contábeis. Nossa abordagem combina expertise técnica com um
-                atendimento personalizado, garantindo que cada cliente receba soluções
-                adequadas às suas necessidades específicas.
+                Nosso trabalho é guiado pela paixão em proporcionar o que há de mais especial na vida: emoções genuínas, conexões verdadeiras e a beleza única de cada detalhe. Acreditamos que os nossos produtos vão além de uma imagem; ela é um legado que atravessa o tempo, preservando lembranças e sentimentos.
+              </p>
+              <p className="text-muted-foreground mb-6">
+                Com um olhar criativo, garantimos produtos personalizados que traduzem sua personalidade e estilo. Seja para um pedido de desculpas, datas especiais, eventos ou até mesmo um funeral, estamos aqui para criar imagens que falem por si e emocionem por gerações.
               </p>
               <ul className="space-y-3">
                 {[
-                  'Equipe multidisciplinar e altamente qualificada',
-                  'Processos contábeis simplificados e transparentes',
-                  'Tecnologia de ponta para gestão financeira eficiente',
-                  'Comunicação clara e atendimento personalizado'
+                  'Equipe de profissionais qualificados',
+                  'Compromisso com prazos de entrega',
+                  'Estilos exclusivos e sofisticados',
+                  'Qualidade profissional nos produtos'
                 ].map((item, index) => (
                   <li key={index} className="flex items-start gap-3">
                     <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
@@ -73,23 +72,23 @@ const AboutSection = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <AboutCard 
               icon={<Target className="h-10 w-10 text-primary" />}
-              title="Missão"
-              description="Oferecer serviços contábeis de excelência, proporcionando segurança e tranquilidade para que nossos clientes possam focar no crescimento de seus negócios."
+              title="POR QUE NÓS?"
+              description="Imagine, sonhe, registre: seus momentos eternizados com perfeição."
             />
             <AboutCard 
               icon={<Heart className="h-10 w-10 text-primary" />}
-              title="Visão"
-              description="Ser reconhecida como referência em contabilidade consultiva no Brasil, criando relacionamentos duradouros baseados em confiança e resultados."
+              title="EQUIPE DE PROFISSIONAIS"
+              description="Utilizamos mão de obra qualificada para garantir produtos vibrantes e de altíssima qualidade."
             />
             <AboutCard 
               icon={<Award className="h-10 w-10 text-primary" />}
-              title="Valores"
-              description="Ética, transparência, compromisso com resultados, excelência técnica e inovação constante em nossos processos e serviços."
+              title="COMPROMISSO COM PRAZOS"
+              description="Temos uma equipe de entregadores qualificados para fazer sua entrega no prazo combinado."
             />
             <AboutCard 
               icon={<Check className="h-10 w-10 text-primary" />}
-              title="Diferenciais"
-              description="Atendimento personalizado, tecnologia de ponta, equipe especializada e processos transparentes para garantir sua satisfação."
+              title="ESTILOS EXCLUSIVO E SOFISTICADO"
+              description="Nossos produtos são obras de arte que unem técnica e emoção em cada detalhe."
             />
           </div>
         </div>
