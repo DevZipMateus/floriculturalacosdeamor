@@ -2,7 +2,7 @@
 import { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { FileText, PieChart, Building, Shield, FileCheck, BarChart } from 'lucide-react';
+import { FileText } from 'lucide-react';
 
 const ServicesSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -28,34 +28,32 @@ const ServicesSection = () => {
   
   const services = [
     {
-      icon: <Building className="h-12 w-12 text-primary" />,
-      title: "Abertura e Legalização de Empresas",
-      description: "Simplificamos todo o processo de criação da sua empresa, cuidando da burocracia para você iniciar suas atividades rapidamente."
+      icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="h-12 w-12 text-floral-gold">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z" />
+            </svg>,
+      title: "Flores para Velórios",
+      description: "Arranjos florais para homenagear momentos de despedida, feitos com respeito e delicadeza para transmitir conforto e carinho."
     }, 
     {
-      icon: <FileText className="h-12 w-12 text-primary" />,
-      title: "Contabilidade Empresarial",
-      description: "Registro preciso de todas as operações fiscais e contábeis, garantindo conformidade com as exigências legais."
+      icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="h-12 w-12 text-floral-gold">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>,
+      title: "Flores Expressas",
+      description: "Entrega rápida para surpresas de última hora ou momentos especiais que não podem esperar. Flores frescas com entrega ágil em todo Brasil."
     }, 
     {
-      icon: <PieChart className="h-12 w-12 text-primary" />,
-      title: "Gestão Fiscal e Tributária",
-      description: "Planejamento tributário estratégico para reduzir legalmente a carga de impostos e otimizar os recursos da sua empresa."
+      icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="h-12 w-12 text-floral-gold">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+            </svg>,
+      title: "Buquês para Casamentos",
+      description: "Buquês personalizados para noivas, madrinhas e toda a cerimônia, com flores selecionadas para tornar o seu dia ainda mais especial."
     }, 
     {
-      icon: <Shield className="h-12 w-12 text-primary" />,
-      title: "Consultoria Tributária",
-      description: "Orientação especializada para tomadas de decisão estratégicas, maximizando resultados e minimizando riscos."
-    }, 
-    {
-      icon: <FileCheck className="h-12 w-12 text-primary" />,
-      title: "Departamento Pessoal",
-      description: "Gestão completa de folha de pagamento, admissões, demissões e toda a rotina trabalhista da sua empresa."
-    }, 
-    {
-      icon: <BarChart className="h-12 w-12 text-primary" />,
-      title: "Gestão Financeira",
-      description: "Acompanhamento de indicadores financeiros, fluxo de caixa e análises gerenciais para decisões mais assertivas."
+      icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="h-12 w-12 text-floral-gold">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9.53 16.122a3 3 0 0 0-5.78 1.128 2.25 2.25 0 0 1-2.4 2.245 4.5 4.5 0 0 0 8.4-2.245c0-.399-.078-.78-.22-1.128Zm0 0a15.998 15.998 0 0 0 3.388-1.62m-5.043-.025a15.994 15.994 0 0 1 1.622-3.395m3.42 3.42a15.995 15.995 0 0 0 4.764-4.648l3.876-5.814a1.151 1.151 0 0 0-1.597-1.597L14.146 6.32a15.996 15.996 0 0 0-4.649 4.763m3.42 3.42a6.776 6.776 0 0 0-3.42-3.42" />
+            </svg>,
+      title: "Arranjos Personalizados",
+      description: "Criações exclusivas para decoração, presentes ou eventos especiais. Flores cuidadosamente selecionadas e arranjadas com arte e criatividade."
     }
   ];
   
@@ -63,19 +61,19 @@ const ServicesSection = () => {
     <section id="services" ref={sectionRef} className="section-padding bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto">
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4 animate-on-scroll">
+          <span className="inline-block px-4 py-1 bg-floral-gold/10 text-floral-gold rounded-full text-sm font-medium mb-4 animate-on-scroll">
             Nossos Serviços
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 animate-on-scroll">
-            Soluções Contábeis Completas
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-floral-burgundy animate-on-scroll">
+            Florindo Momentos Especiais
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto animate-on-scroll">
-            Oferecemos uma gama completa de serviços contábeis e financeiros para atender às necessidades 
-            específicas do seu negócio.
+          <p className="text-floral-burgundy/80 max-w-2xl mx-auto animate-on-scroll">
+            Oferecemos serviços florais personalizados para todos os momentos da vida, 
+            com atendimento ágil e humano em todo o Brasil.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
           {services.map((service, index) => (
             <ServiceCard 
               key={index} 
@@ -88,7 +86,13 @@ const ServicesSection = () => {
         </div>
 
         <div className="mt-16 text-center animate-on-scroll">
-          
+          <Button 
+            size="lg" 
+            className="quote-btn bg-floral-burgundy hover:bg-floral-burgundy/90 text-white rounded-md transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-2"
+          >
+            <FileText size={20} />
+            <span>Solicitar Orçamento</span>
+          </Button>
         </div>
       </div>
     </section>
@@ -110,9 +114,9 @@ const ServiceCard = ({
 }: ServiceCardProps) => (
   <Card className={`animate-on-scroll service-card border border-border/50 shadow-md overflow-hidden h-full [animation-delay:${index * 100}ms]`}>
     <CardContent className="p-8 flex flex-col items-center text-center h-full">
-      <div className="mb-5 p-4 bg-primary/5 rounded-full">{icon}</div>
-      <h3 className="text-xl font-bold mb-3">{title}</h3>
-      <p className="text-muted-foreground">{description}</p>
+      <div className="mb-5 p-4 bg-floral-gold/5 rounded-full">{icon}</div>
+      <h3 className="text-xl font-bold mb-3 text-floral-burgundy">{title}</h3>
+      <p className="text-floral-burgundy/70">{description}</p>
     </CardContent>
   </Card>
 );

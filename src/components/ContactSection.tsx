@@ -28,27 +28,27 @@ const ContactSection = () => {
 
   const contactInfo = [
     {
-      icon: <Phone className="h-5 w-5 text-primary" />,
+      icon: <Phone className="h-5 w-5 text-floral-gold" />,
       title: "Telefone",
-      details: "(11) 3456-7890",
-      link: "tel:+551134567890"
+      details: "(62) 98146-4070",
+      link: "tel:+5562981464070"
     },
     {
-      icon: <Mail className="h-5 w-5 text-primary" />,
+      icon: <Mail className="h-5 w-5 text-floral-gold" />,
       title: "E-mail",
-      details: "contato@harmonicacontabil.com.br",
-      link: "mailto:contato@harmonicacontabil.com.br"
+      details: "soraia-irineia@hotmail.com",
+      link: "mailto:soraia-irineia@hotmail.com"
     },
     {
-      icon: <MapPin className="h-5 w-5 text-primary" />,
+      icon: <MapPin className="h-5 w-5 text-floral-gold" />,
       title: "Endereço",
-      details: "Av. Paulista, 1000, São Paulo - SP",
+      details: "Rua Manaus, Goiás",
       link: "https://maps.google.com"
     },
     {
-      icon: <Clock className="h-5 w-5 text-primary" />,
+      icon: <Clock className="h-5 w-5 text-floral-gold" />,
       title: "Horário",
-      details: "Segunda a Sexta, 9h às 18h",
+      details: "Atendimento Online",
       link: null
     }
   ];
@@ -56,18 +56,18 @@ const ContactSection = () => {
   return (
     <section id="contact" ref={sectionRef} className="section-padding bg-white relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
+      <div className="absolute top-0 right-0 w-96 h-96 bg-floral-gold/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/5 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl"></div>
       
       <div className="container mx-auto relative z-10">
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4 animate-on-scroll">
+          <span className="inline-block px-4 py-1 bg-floral-gold/10 text-floral-gold rounded-full text-sm font-medium mb-4 animate-on-scroll">
             Entre em Contato
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 animate-on-scroll">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-floral-burgundy animate-on-scroll">
             Estamos Prontos para Atender Você
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto animate-on-scroll">
+          <p className="text-floral-burgundy/80 max-w-2xl mx-auto animate-on-scroll">
             Entre em contato conosco através de WhatsApp, telefone ou e-mail.
             Nossa equipe está à disposição para oferecer o suporte que você precisa.
           </p>
@@ -78,8 +78,8 @@ const ContactSection = () => {
             <CardContent className="p-8">
               <div className="grid md:grid-cols-2 gap-10">
                 <div>
-                  <h3 className="text-2xl font-bold mb-6">Informações de Contato</h3>
-                  <p className="text-muted-foreground mb-8">
+                  <h3 className="text-2xl font-bold mb-6 text-floral-burgundy">Informações de Contato</h3>
+                  <p className="text-floral-burgundy/70 mb-8">
                     Para solicitar orçamentos, tirar dúvidas ou agendar uma consulta, 
                     utilize um dos canais de atendimento abaixo. Respondemos com rapidez e eficiência.
                   </p>
@@ -97,29 +97,41 @@ const ContactSection = () => {
                   </div>
                   
                   <div>
-                    <h4 className="text-lg font-medium mb-4">Siga-nos</h4>
+                    <h4 className="text-lg font-medium mb-4 text-floral-burgundy">Siga-nos</h4>
                     <div className="flex space-x-3">
-                      <SocialLink icon={<Facebook size={20} />} href="#" label="Facebook" />
-                      <SocialLink icon={<Instagram size={20} />} href="#" label="Instagram" />
-                      <SocialLink icon={<Linkedin size={20} />} href="#" label="LinkedIn" />
+                      <SocialLink 
+                        icon={<Facebook size={20} />} 
+                        href="https://www.facebook.com/share/1FdsXn6kBx/" 
+                        label="Facebook" 
+                      />
+                      <SocialLink 
+                        icon={<Instagram size={20} />} 
+                        href="https://www.instagram.com/floriculturalacosdeamorr" 
+                        label="Instagram" 
+                      />
+                      <SocialLink 
+                        icon={<Linkedin size={20} />} 
+                        href="https://www.linkedin.com/in/la%C3%A7os-de-amor-92b1321b5" 
+                        label="LinkedIn" 
+                      />
                     </div>
                   </div>
                 </div>
                 
                 <div className="flex items-center justify-center">
-                  <div className="text-center p-6 bg-primary/5 rounded-xl max-w-md">
-                    <div className="mb-4 text-primary">
+                  <div className="text-center p-6 bg-floral-gold/5 rounded-xl max-w-md">
+                    <div className="mb-4 text-floral-gold">
                       <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mx-auto">
                         <path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z" />
                         <path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1" />
                       </svg>
                     </div>
-                    <h3 className="text-xl font-bold mb-3">Prefere atendimento via WhatsApp?</h3>
-                    <p className="text-muted-foreground mb-6">
+                    <h3 className="text-xl font-bold mb-3 text-floral-burgundy">Prefere atendimento via WhatsApp?</h3>
+                    <p className="text-floral-burgundy/70 mb-6">
                       Clique no botão do WhatsApp no canto inferior direito da tela para iniciar uma conversa diretamente com nossa equipe de atendimento.
                     </p>
-                    <div className="text-sm text-muted-foreground">
-                      Tempo médio de resposta: <span className="font-medium text-foreground">15 minutos</span>
+                    <div className="text-sm text-floral-burgundy/70">
+                      Tempo médio de resposta: <span className="font-medium text-floral-burgundy">15 minutos</span>
                     </div>
                   </div>
                 </div>
@@ -132,7 +144,7 @@ const ContactSection = () => {
           <Card className="border border-border/50 shadow-card overflow-hidden">
             <div className="h-[400px] w-full">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.0976950243356!2d-46.6547919!3d-23.5651084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1627909542948!5m2!1spt-BR!2sbr"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3826.6961218218976!2d-49.2621!3d-16.6778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef19fa1a3d5fb%3A0xe1b826d96047944!2sRua%20Manaus%20-%20Vila%20Nova%2C%20Goi%C3%A2nia%20-%20GO!5e0!3m2!1spt-BR!2sbr!4v1627909542948!5m2!1spt-BR!2sbr"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -160,15 +172,15 @@ const ContactInfoItem = ({ icon, title, details, link }: ContactInfoItemProps) =
     <div className="flex">
       <div className="flex-shrink-0 mr-3 mt-1">{icon}</div>
       <div>
-        <h4 className="font-medium">{title}</h4>
-        <p className="text-muted-foreground mt-1">{details}</p>
+        <h4 className="font-medium text-floral-burgundy">{title}</h4>
+        <p className="text-floral-burgundy/70 mt-1">{details}</p>
       </div>
     </div>
   );
 
   if (link) {
     return (
-      <a href={link} className="block hover:text-primary transition-colors">
+      <a href={link} className="block hover:text-floral-gold transition-colors">
         {content}
       </a>
     );
@@ -186,8 +198,10 @@ interface SocialLinkProps {
 const SocialLink = ({ icon, href, label }: SocialLinkProps) => (
   <a
     href={href}
-    className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors"
+    className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-floral-gold/10 text-floral-gold hover:bg-floral-burgundy hover:text-white transition-colors"
     aria-label={label}
+    target="_blank"
+    rel="noopener noreferrer"
   >
     {icon}
   </a>

@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,28 +7,28 @@
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
-    --foreground: 220 20% 20%;
+    --background: 0 0% 100%;
+    --foreground: 350 25% 36%;
     --card: 0 0% 100%;
-    --card-foreground: 220 20% 20%;
+    --card-foreground: 350 25% 36%;
     --popover: 0 0% 100%;
-    --popover-foreground: 220 20% 20%;
+    --popover-foreground: 350 25% 36%;
     
-    --secondary: 215 30% 92%;
-    --secondary-foreground: 215 35% 25%;
-    --muted: 215 30% 92%;
-    --muted-foreground: 215 25% 40%;
+    --secondary: 45 89% 80%;
+    --secondary-foreground: 350 25% 36%;
+    --muted: 45 30% 92%;
+    --muted-foreground: 350 25% 60%;
     
-    --primary: 175 65% 35%;
+    --primary: 350 60% 36%;
     --primary-foreground: 0 0% 100%;
-    --accent: 175 70% 40%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 45 89% 62%;
+    --accent-foreground: 350 25% 36%;
     
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 175 65% 35%;
+    --ring: 45 89% 62%;
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
