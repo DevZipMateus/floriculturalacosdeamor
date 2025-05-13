@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
+import { openWhatsApp } from '@/utils/whatsapp';
 
 const WhatsAppButton = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,7 +23,7 @@ const WhatsAppButton = () => {
   }, []);
 
   const handleOpenWhatsApp = () => {
-    window.open('https://wa.me/5562981464070?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20Floricultura%20Laços%20de%20Amor.', '_blank');
+    openWhatsApp();
     setIsOpen(false);
   };
 

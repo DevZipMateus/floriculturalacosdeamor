@@ -3,6 +3,7 @@ import { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { FileText } from 'lucide-react';
+import { openWhatsApp } from '@/utils/whatsapp';
 
 const ServicesSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -103,6 +104,7 @@ const ServicesSection = () => {
           <Button 
             size="lg" 
             className="quote-btn bg-floral-burgundy hover:bg-floral-burgundy/90 text-white rounded-md transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-2"
+            onClick={() => openWhatsApp('Olá! Gostaria de solicitar um orçamento para os serviços da Floricultura Laços de Amor.')}
           >
             <FileText size={20} />
             <span>Solicitar Orçamento</span>

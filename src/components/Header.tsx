@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X, FileText } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { openWhatsApp } from '@/utils/whatsapp';
 import {
   Sheet,
   SheetContent,
@@ -58,7 +59,10 @@ const Header = () => {
           {/* Desktop Menu */}
           <nav className="hidden md:flex items-center space-x-1">
             <NavLinks />
-            <Button className="quote-btn ml-4 text-white bg-floral-burgundy hover:bg-floral-burgundy/90 rounded-md transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-2">
+            <Button 
+              className="quote-btn ml-4 text-white bg-floral-burgundy hover:bg-floral-burgundy/90 rounded-md transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-2"
+              onClick={() => openWhatsApp()}
+            >
               <FileText size={18} />
               Fale Conosco
             </Button>
@@ -77,7 +81,10 @@ const Header = () => {
                 <nav className="flex flex-col items-center space-y-4 text-lg">
                   <NavLinks mobile />
                   <SheetClose asChild>
-                    <Button className="quote-btn mt-4 w-full text-white bg-floral-burgundy hover:bg-floral-burgundy/90 rounded-md transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2 py-3 text-base">
+                    <Button 
+                      className="quote-btn mt-4 w-full text-white bg-floral-burgundy hover:bg-floral-burgundy/90 rounded-md transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2 py-3 text-base"
+                      onClick={() => openWhatsApp()}
+                    >
                       <FileText size={18} />
                       Fale Conosco
                     </Button>

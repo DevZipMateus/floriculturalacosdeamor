@@ -2,6 +2,7 @@
 import { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronDown, FileText } from 'lucide-react';
+import { openWhatsApp } from '@/utils/whatsapp';
 
 const HeroSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -48,6 +49,7 @@ const HeroSection = () => {
             <Button 
               size="lg" 
               className="rounded-md shadow-md transition-all duration-300 bg-floral-burgundy hover:bg-floral-burgundy/90 text-white"
+              onClick={() => scrollToNextSection()}
             >
               Nossos Arranjos
             </Button>
@@ -55,6 +57,7 @@ const HeroSection = () => {
               size="lg" 
               variant="secondary" 
               className="quote-btn hover:border-floral-gold hover:bg-secondary/70 group rounded-md shadow-md transition-all duration-300 flex gap-2 bg-floral-gold text-floral-burgundy hover:text-floral-burgundy"
+              onClick={() => openWhatsApp('Olá! Gostaria de solicitar um orçamento para os serviços da Floricultura Laços de Amor.')}
             >
               <FileText size={20} className="group-hover:animate-pulse" />
               <span>Solicitar Orçamento</span>
