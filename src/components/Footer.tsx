@@ -1,6 +1,5 @@
-
 import { Button } from '@/components/ui/button';
-import { ChevronUp, Facebook, Linkedin } from 'lucide-react';
+import { ChevronUp, Facebook, Linkedin, Instagram } from 'lucide-react';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -42,6 +41,7 @@ const Footer = () => {
               <FooterSocialLink 
                 href="https://www.instagram.com/floriculturalacosdeamorr" 
                 aria-label="Instagram"
+                icon={<Instagram className="h-4 w-4" />}
               />
             </div>
           </div>
