@@ -1,5 +1,6 @@
+
 import { Button } from '@/components/ui/button';
-import { ChevronUp, Facebook, Linkedin, Instagram } from 'lucide-react';
+import { ChevronUp, Facebook, Instagram, Phone, Mail, MapPin } from 'lucide-react';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -29,51 +30,61 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4 mt-6">
               <FooterSocialLink 
-                href="https://www.facebook.com/share/1FdsXn6kBx/" 
-                aria-label="Facebook"
-                icon={<Facebook className="h-4 w-4" />}
-              />
-              <FooterSocialLink 
-                href="https://www.linkedin.com/in/la%C3%A7os-de-amor-92b1321b5" 
-                aria-label="LinkedIn"
-                icon={<Linkedin className="h-4 w-4" />}
-              />
-              <FooterSocialLink 
                 href="https://www.instagram.com/floriculturalacosdeamorr" 
                 aria-label="Instagram"
                 icon={<Instagram className="h-4 w-4" />}
+              />
+              <FooterSocialLink 
+                href="https://www.facebook.com/share/1FdsXn6kBx/" 
+                aria-label="Facebook"
+                icon={<Facebook className="h-4 w-4" />}
               />
             </div>
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-4">Links Rápidos</h4>
+            <h4 className="text-lg font-semibold mb-4 text-floral-gold">Institucional</h4>
             <ul className="space-y-2">
-              <FooterNavItem href="#hero">Início</FooterNavItem>
+              <FooterNavItem href="#hero">Home</FooterNavItem>
               <FooterNavItem href="#about">Sobre Nós</FooterNavItem>
-              <FooterNavItem href="#services">Serviços</FooterNavItem>
+              <FooterNavItem href="#services">Nossas Soluções</FooterNavItem>
+              <FooterNavItem href="#gallery">Nossos Projetos</FooterNavItem>
               <FooterNavItem href="#contact">Contato</FooterNavItem>
-              <FooterNavItem href="https://lacosdeamor.com.br/">Site Oficial</FooterNavItem>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-4">Nossos Serviços</h4>
+            <h4 className="text-lg font-semibold mb-4 text-floral-gold">Nossas Soluções</h4>
             <ul className="space-y-2">
-              <FooterNavItem href="#services">Flores para Velórios</FooterNavItem>
-              <FooterNavItem href="#services">Flores Expressas</FooterNavItem>
-              <FooterNavItem href="#services">Buquês para Casamentos</FooterNavItem>
-              <FooterNavItem href="#services">Arranjos Personalizados</FooterNavItem>
+              <FooterNavItem href="#gallery" onClick={() => document.querySelector('[data-value="coroas"]')?.click()}>Coroa de Flores</FooterNavItem>
+              <FooterNavItem href="#gallery" onClick={() => document.querySelector('[data-value="buques"]')?.click()}>Buquê de Flores</FooterNavItem>
+              <FooterNavItem href="#gallery" onClick={() => document.querySelector('[data-value="cestas"]')?.click()}>Cestas & Presentes</FooterNavItem>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-4">Contato</h4>
-            <ul className="space-y-3 text-white/80">
-              <li>(62) 98146-4070</li>
-              <li>soraia-irineia@hotmail.com</li>
-              <li>Rua Manaus, Goiás</li>
-              <li>Atendimento Online</li>
+            <h4 className="text-lg font-semibold mb-4 text-floral-gold">Nossos Contatos</h4>
+            <ul className="space-y-3">
+              <li className="flex items-center gap-2">
+                <Mail size={18} className="text-floral-gold" />
+                <span className="text-white/80">contato@lacosdeamor.com.br</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Phone size={18} className="text-floral-gold" />
+                <span className="text-white/80">0800 181 3000</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Phone size={18} className="text-floral-gold" />
+                <span className="text-white/80">0800 181 3000</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Phone size={18} className="text-floral-gold" />
+                <span className="text-white/80">0800 181 3000</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <MapPin size={18} className="text-floral-gold" />
+                <span className="text-white/80">Goiânia - GO</span>
+              </li>
             </ul>
           </div>
         </div>
@@ -103,12 +114,25 @@ const Footer = () => {
 interface FooterNavItemProps {
   href: string;
   children: React.ReactNode;
+  onClick?: () => void;
 }
 
-const FooterNavItem = ({ href, children }: FooterNavItemProps) => (
+const FooterNavItem = ({ href, children, onClick }: FooterNavItemProps) => (
   <li>
     <a
       href={href}
+      onClick={(e) => {
+        if (onClick) {
+          e.preventDefault();
+          const element = document.querySelector(href);
+          if (element) {
+            element.scrollIntoView({
+              behavior: 'smooth'
+            });
+          }
+          setTimeout(onClick, 800);
+        }
+      }}
       className="text-white/70 hover:text-floral-gold transition-colors duration-200"
     >
       {children}

@@ -28,7 +28,36 @@ const Index = () => {
     // Trigger once on load
     handleScroll();
     
-    return () => window.removeEventListener('scroll', handleScroll);
+    // Permitir navegação por categoria via hash na URL
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash.includes('#gallery-')) {
+        const category = hash.replace('#gallery-', '');
+        const tabTrigger = document.querySelector(`[data-value="${category}"]`);
+        if (tabTrigger) {
+          // Primeiro role até a galeria
+          const gallery = document.getElementById('gallery');
+          if (gallery) {
+            gallery.scrollIntoView({ behavior: 'smooth' });
+            
+            // Depois de um pequeno atraso, clique na aba correta
+            setTimeout(() => {
+              (tabTrigger as HTMLElement).click();
+            }, 800);
+          }
+        }
+      }
+    };
+    
+    // Verificar hash na carga inicial
+    handleHashChange();
+    // Adicionar listener para mudanças futuras de hash
+    window.addEventListener('hashchange', handleHashChange);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('hashchange', handleHashChange);
+    };
   }, []);
 
   return (

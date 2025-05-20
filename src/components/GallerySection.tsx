@@ -17,7 +17,7 @@ import { ShoppingBag } from 'lucide-react';
 import { openWhatsApp } from '@/utils/whatsapp';
 import { Button } from '@/components/ui/button';
 
-// Categories of images
+// Categorias de imagens organizadas
 const categories = {
   "coroas": [
     "1436283747534662.jpeg",
@@ -90,14 +90,14 @@ const categories = {
   ],
 };
 
-// Featured images for the top carousel
+// Imagens em destaque para o carrossel superior
 const featuredImages = [
-  "1436283747534662.jpeg",
-  "1211310727385237.jpeg",
-  "4133203780233785.jpeg",
-  "1277281734403665.jpeg",
-  "1149602736833315.jpeg",
-  "1022540286729732.jpeg",
+  "1436283747534662.jpeg", // coroa
+  "1211310727385237.jpeg", // buquê
+  "4133203780233785.jpeg", // cesta
+  "1277281734403665.jpeg", // coroa
+  "1149602736833315.jpeg", // buquê
+  "1022540286729732.jpeg", // cesta
 ];
 
 interface GalleryItemProps {
@@ -217,9 +217,9 @@ const GallerySection = () => {
           className="animate-on-scroll"
         >
           <TabsList className="grid w-full grid-cols-3 mb-8">
-            <TabsTrigger value="coroas" className="text-lg">Coroas de Flores</TabsTrigger>
-            <TabsTrigger value="buques" className="text-lg">Buquês de Flores</TabsTrigger>
-            <TabsTrigger value="cestas" className="text-lg">Cestas e Presentes</TabsTrigger>
+            <TabsTrigger value="coroas" data-value="coroas" className="text-lg">Coroas de Flores</TabsTrigger>
+            <TabsTrigger value="buques" data-value="buques" className="text-lg">Buquês de Flores</TabsTrigger>
+            <TabsTrigger value="cestas" data-value="cestas" className="text-lg">Cestas & Presentes</TabsTrigger>
           </TabsList>
           
           {/* Coroas de Flores */}
