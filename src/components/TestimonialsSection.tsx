@@ -1,32 +1,44 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Quote, Star, StarHalf } from 'lucide-react';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 const testimonials = [
   {
-    name: "Carlos Silva",
-    company: "Silva Tech Solutions",
+    name: "Kalil Lichtle",
+    date: "junho 2023",
+    rating: 5,
     image: "/placeholder.svg",
-    text: "A Harmônica Contabilidade transformou completamente nossa gestão financeira. Além da excelência técnica, o atendimento personalizado nos deu confiança para tomar decisões estratégicas."
+    text: "Serviço muito bom, coroas de primeira qualidade, atendimento excelente, entrega rápida. Super indico! Produtos de qualidade e bom gosto!"
   },
   {
-    name: "Ana Oliveira",
-    company: "Boutique Elegance",
+    name: "Gilmires Neto",
+    date: "março 2023",
+    rating: 5,
     image: "/placeholder.svg",
-    text: "Desde que começamos a trabalhar com a Harmônica, nossa carga tributária reduziu significativamente. A equipe é extremamente proativa e sempre nos orienta sobre as melhores práticas fiscais."
+    text: "Excelente qualidade dos produtos, atendimento muito bom. Recomendo a todos! Entrega rápida e dentro do prazo. Coroas e buquês exuberantes."
   },
   {
-    name: "Roberto Mendes",
-    company: "Construmendes Ltda",
+    name: "Thiago Cruz",
+    date: "janeiro 2024",
+    rating: 5,
     image: "/placeholder.svg",
-    text: "Os serviços contábeis da Harmônica são de altíssima qualidade. Trouxeram organização e tranquilidade para nossa empresa, além de identificarem oportunidades de economia que não enxergávamos."
+    text: "Empresa muito atenciosa e dedicada. Entregou excelentes resultados, forte em sua proposta e muito profissional! Recomendo muito!"
   },
   {
-    name: "Lúcia Ferreira",
-    company: "Café & Bistrô Aroma",
+    name: "Fernanda Oliveira",
+    date: "dezembro 2023",
+    rating: 5,
     image: "/placeholder.svg",
-    text: "Como empreendedora, precisava de um parceiro contábil que entendesse os desafios de um pequeno negócio. A Harmônica superou todas as expectativas com seu atendimento humanizado."
+    text: "Serviço de primeira qualidade, atendimento excelente e entrega rápida. Os arranjos são lindos e as flores são sempre muito frescas."
+  },
+  {
+    name: "Ricardo Almeida",
+    date: "fevereiro 2024",
+    rating: 5,
+    image: "/placeholder.svg",
+    text: "Sempre que precisei tive um ótimo atendimento. Os arranjos são lindos e chegam no prazo. Floricultura de confiança, recomendo muito!"
   }
 ];
 
@@ -85,18 +97,18 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section ref={sectionRef} className="section-padding bg-gray-50 overflow-hidden">
+    <section ref={sectionRef} id="testimonials" className="section-padding py-16 bg-gray-50 overflow-hidden">
       <div className="container mx-auto">
-        <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4 animate-on-scroll">
-            Depoimentos
+        <div className="text-center mb-12">
+          <span className="inline-block px-4 py-1 bg-floral-burgundy/10 text-floral-burgundy rounded-full text-sm font-medium mb-4 animate-on-scroll">
+            Avaliações
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 animate-on-scroll">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 animate-on-scroll text-floral-burgundy">
             O Que Nossos Clientes Dizem
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto animate-on-scroll">
-            Atendimento personalizado e resultados concretos são nossa marca registrada.
-            Veja o que nossos clientes têm a dizer sobre nossos serviços.
+            Veja o que nossos clientes têm a dizer sobre nossas flores, arranjos e atendimento.
+            Satisfação é nossa prioridade!
           </p>
         </div>
 
@@ -112,7 +124,7 @@ const TestimonialsSection = () => {
           <div className="flex justify-center mt-10 space-x-4">
             <button
               onClick={handlePrev}
-              className="p-3 rounded-full bg-white shadow-md border border-gray-200 text-foreground hover:bg-gray-50 transition-colors"
+              className="p-3 rounded-full bg-white shadow-md border border-gray-200 text-floral-burgundy hover:bg-gray-50 transition-colors"
               aria-label="Depoimento anterior"
             >
               <ChevronLeft size={20} />
@@ -129,7 +141,7 @@ const TestimonialsSection = () => {
                     setTimeout(() => setIsTransitioning(false), 600);
                   }}
                   className={`w-3 h-3 rounded-full transition-colors ${
-                    currentIndex === index ? 'bg-primary' : 'bg-gray-300'
+                    currentIndex === index ? 'bg-floral-burgundy' : 'bg-gray-300'
                   }`}
                   aria-label={`Ir para depoimento ${index + 1}`}
                 />
@@ -138,7 +150,7 @@ const TestimonialsSection = () => {
             
             <button
               onClick={handleNext}
-              className="p-3 rounded-full bg-white shadow-md border border-gray-200 text-foreground hover:bg-gray-50 transition-colors"
+              className="p-3 rounded-full bg-white shadow-md border border-gray-200 text-floral-burgundy hover:bg-gray-50 transition-colors"
               aria-label="Próximo depoimento"
             >
               <ChevronRight size={20} />
@@ -153,36 +165,74 @@ const TestimonialsSection = () => {
 interface TestimonialCardProps {
   testimonial: {
     name: string;
-    company: string;
+    date: string;
+    rating: number;
     image: string;
     text: string;
   };
 }
 
-const TestimonialCard = ({ testimonial }: TestimonialCardProps) => (
-  <Card className="border border-border/50 shadow-md service-card h-full">
-    <CardContent className="p-8 h-full flex flex-col">
-      <div className="mb-6 text-primary">
-        <Quote size={32} />
-      </div>
-      
-      <p className="text-foreground mb-6 flex-grow">{testimonial.text}</p>
-      
-      <div className="flex items-center">
-        <div className="w-12 h-12 rounded-full overflow-hidden mr-4 bg-gray-200">
-          <img 
-            src={testimonial.image} 
-            alt={testimonial.name} 
-            className="w-full h-full object-cover"
-          />
+const TestimonialCard = ({ testimonial }: TestimonialCardProps) => {
+  // Generate stars based on rating
+  const renderStars = (rating: number) => {
+    const stars = [];
+    const fullStars = Math.floor(rating);
+    const hasHalfStar = rating % 1 !== 0;
+    
+    // Add full stars
+    for (let i = 0; i < fullStars; i++) {
+      stars.push(
+        <Star key={`full-${i}`} className="fill-floral-gold text-floral-gold" size={16} />
+      );
+    }
+    
+    // Add half star if needed
+    if (hasHalfStar) {
+      stars.push(
+        <StarHalf key="half" className="fill-floral-gold text-floral-gold" size={16} />
+      );
+    }
+    
+    // Add empty stars to make total of 5
+    const emptyStars = 5 - Math.ceil(rating);
+    for (let i = 0; i < emptyStars; i++) {
+      stars.push(
+        <Star key={`empty-${i}`} className="text-gray-300" size={16} />
+      );
+    }
+    
+    return stars;
+  };
+
+  return (
+    <Card className="border border-floral-gold/20 shadow-md service-card h-full hover:shadow-lg transition-shadow">
+      <CardContent className="p-8 h-full flex flex-col">
+        <div className="mb-6 text-floral-gold">
+          <Quote size={32} />
         </div>
-        <div>
-          <h4 className="font-bold text-foreground">{testimonial.name}</h4>
-          <p className="text-sm text-muted-foreground">{testimonial.company}</p>
+        
+        <div className="flex items-center mb-4">
+          {renderStars(testimonial.rating)}
+          <span className="ml-2 text-sm text-gray-500">{testimonial.date}</span>
         </div>
-      </div>
-    </CardContent>
-  </Card>
-);
+        
+        <p className="text-foreground mb-6 flex-grow">{testimonial.text}</p>
+        
+        <div className="flex items-center mt-auto">
+          <Avatar className="mr-4 border-2 border-floral-burgundy/10">
+            <AvatarImage src={testimonial.image} alt={testimonial.name} />
+            <AvatarFallback className="bg-floral-burgundy/10 text-floral-burgundy">
+              {testimonial.name.substring(0, 2).toUpperCase()}
+            </AvatarFallback>
+          </Avatar>
+          <div>
+            <h4 className="font-bold text-floral-burgundy">{testimonial.name}</h4>
+            <p className="text-sm text-muted-foreground">Cliente Laços de Amor</p>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  );
+};
 
 export default TestimonialsSection;
