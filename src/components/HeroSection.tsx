@@ -13,10 +13,10 @@ const HeroSection = () => {
     }
   }, []);
   
-  const scrollToNextSection = () => {
-    const aboutSection = document.getElementById('about');
-    if (aboutSection) {
-      aboutSection.scrollIntoView({
+  const scrollToGallerySection = () => {
+    const gallerySection = document.getElementById('gallery');
+    if (gallerySection) {
+      gallerySection.scrollIntoView({
         behavior: 'smooth'
       });
     }
@@ -49,7 +49,7 @@ const HeroSection = () => {
             <Button 
               size="lg" 
               className="rounded-md shadow-md transition-all duration-300 bg-floral-burgundy hover:bg-floral-burgundy/90 text-white"
-              onClick={() => scrollToNextSection()}
+              onClick={() => scrollToGallerySection()}
             >
               Nossos Arranjos
             </Button>
@@ -67,7 +67,7 @@ const HeroSection = () => {
       </div>
 
       {/* Scroll down indicator - Adjusted to be lower */}
-      <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 text-floral-burgundy cursor-pointer animate-bounce" onClick={scrollToNextSection}>
+      <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 text-floral-burgundy cursor-pointer animate-bounce" onClick={scrollToGallerySection}>
         <ChevronDown size={32} />
       </div>
     </section>;
