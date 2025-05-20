@@ -123,7 +123,7 @@ const GalleryItem: React.FC<GalleryItemProps> = ({ image, category }) => {
       "cestas": "Cesta/Presente"
     }[category];
     
-    openWhatsApp(`Olá! Gostaria de saber mais sobre este produto: ${categoryName} (Ref: ${image.replace('.jpeg', '')})`);
+    openWhatsApp(`Olá! Gostaria de saber mais sobre este produto: ${categoryName}`);
   };
 
   return (
@@ -204,7 +204,7 @@ const GallerySection = () => {
                             "outros": "Produto"
                           }[category];
                           
-                          openWhatsApp(`Olá! Gostaria de saber mais sobre este produto em destaque: ${categoryName} (Ref: ${image.replace('.jpeg', '')})`);
+                          openWhatsApp(`Olá! Gostaria de saber mais sobre este produto em destaque: ${categoryName}`);
                         }}
                       >
                         <ShoppingBag className="mr-2 h-4 w-4" /> Ver Detalhes
