@@ -56,9 +56,18 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4 text-floral-gold">Nossas Soluções</h4>
             <ul className="space-y-2">
-              <FooterNavItem href="#gallery" onClick={() => document.querySelector('[data-value="coroas"]')?.click()}>Coroa de Flores</FooterNavItem>
-              <FooterNavItem href="#gallery" onClick={() => document.querySelector('[data-value="buques"]')?.click()}>Buquê de Flores</FooterNavItem>
-              <FooterNavItem href="#gallery" onClick={() => document.querySelector('[data-value="cestas"]')?.click()}>Cestas & Presentes</FooterNavItem>
+              <FooterNavItem href="#gallery" onClick={() => {
+                const element = document.querySelector('[data-value="coroas"]') as HTMLElement;
+                if (element) element.click();
+              }}>Coroa de Flores</FooterNavItem>
+              <FooterNavItem href="#gallery" onClick={() => {
+                const element = document.querySelector('[data-value="buques"]') as HTMLElement;
+                if (element) element.click();
+              }}>Buquê de Flores</FooterNavItem>
+              <FooterNavItem href="#gallery" onClick={() => {
+                const element = document.querySelector('[data-value="cestas"]') as HTMLElement;
+                if (element) element.click();
+              }}>Cestas & Presentes</FooterNavItem>
             </ul>
           </div>
 
