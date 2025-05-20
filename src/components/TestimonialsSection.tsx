@@ -1,44 +1,79 @@
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { ChevronLeft, ChevronRight, Quote, Star, StarHalf } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Quote, Star } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 const testimonials = [
   {
-    name: "Kalil Lichtle",
-    date: "junho 2023",
+    name: "Josueuda Medeiros",
+    date: "fevereiro 2025",
     rating: 5,
     image: "/placeholder.svg",
-    text: "Serviço muito bom, coroas de primeira qualidade, atendimento excelente, entrega rápida. Super indico! Produtos de qualidade e bom gosto!"
+    text: "Estão de parabéns pelo atendimento e presteza do serviço! Sou do Rio Grande do Norte e pude realizar minha última homenagem à minha tia aí em Goiânia."
   },
   {
-    name: "Gilmires Neto",
-    date: "março 2023",
+    name: "Keila Maia",
+    date: "fevereiro 2025",
     rating: 5,
     image: "/placeholder.svg",
-    text: "Excelente qualidade dos produtos, atendimento muito bom. Recomendo a todos! Entrega rápida e dentro do prazo. Coroas e buquês exuberantes."
+    text: "Nesse momento difícil, a Floricultura Laços de Amor cuida com profissionalismo e sensibilidade de atender um último gesto de honra, com atenção, pontualidade..."
   },
   {
-    name: "Thiago Cruz",
-    date: "janeiro 2024",
+    name: "Mariana Moreira",
+    date: "fevereiro 2025",
     rating: 5,
     image: "/placeholder.svg",
-    text: "Empresa muito atenciosa e dedicada. Entregou excelentes resultados, forte em sua proposta e muito profissional! Recomendo muito!"
+    text: "Gostei do serviço prestado e o atendimento durante todo o período. Foram pacientes e atenciosos. As flores chegaram lindas, bem como prometido."
   },
   {
-    name: "Fernanda Oliveira",
-    date: "dezembro 2023",
+    name: "Kethruyn Covas",
+    date: "fevereiro 2025",
     rating: 5,
     image: "/placeholder.svg",
-    text: "Serviço de primeira qualidade, atendimento excelente e entrega rápida. Os arranjos são lindos e as flores são sempre muito frescas."
+    text: "Atendimento humanizado de excelência. Compreendem o momento que estamos passando e fazem de tudo para que possamos ser bem até atendidos apesar..."
   },
   {
-    name: "Ricardo Almeida",
-    date: "fevereiro 2024",
+    name: "Carla Brandão",
+    date: "fevereiro 2025",
     rating: 5,
     image: "/placeholder.svg",
-    text: "Sempre que precisei tive um ótimo atendimento. Os arranjos são lindos e chegam no prazo. Floricultura de confiança, recomendo muito!"
+    text: "Atendimento excelente, muito atenciosos. Tudo excelente."
+  },
+  {
+    name: "Michele Fernandes",
+    date: "fevereiro 2025",
+    rating: 5,
+    image: "/placeholder.svg",
+    text: "Muito bacana. Estava com pressa para coroa de flores, entregaram em 30 minutos. Muito satisfeita. Obrigada."
+  },
+  {
+    name: "Ulisses e Izabella",
+    date: "fevereiro 2025", 
+    rating: 5,
+    image: "/placeholder.svg",
+    text: "Atendimento rápido e cuidadoso!"
+  },
+  {
+    name: "Henrique Lemos",
+    date: "fevereiro 2025",
+    rating: 5,
+    image: "/placeholder.svg",
+    text: "Empatia e agilidade no atendimento!"
+  },
+  {
+    name: "Luciana Toledo",
+    date: "fevereiro 2025",
+    rating: 5, 
+    image: "/placeholder.svg",
+    text: "Atendimento rápido e eficiente, no momento mais difícil necessitamos de agilidade e compreensão. Quero deixar aqui minha gratidão à Laços de Amor por..."
+  },
+  {
+    name: "Mitema Produções",
+    date: "fevereiro 2025",
+    rating: 5,
+    image: "/placeholder.svg",
+    text: "Sempre muito amáveis e respeitosos. A empresa tem responsabilidade, padrão e qualidade! Entrega no horário como combinado. Atendimento atencioso. Flore..."
   }
 ];
 
@@ -46,26 +81,6 @@ const TestimonialsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const animatedElements = document.querySelectorAll('.animate-on-scroll');
-    animatedElements.forEach((el) => observer.observe(el));
-
-    return () => {
-      animatedElements.forEach((el) => observer.unobserve(el));
-    };
-  }, []);
 
   const handlePrev = () => {
     if (isTransitioning) return;
@@ -82,12 +97,12 @@ const TestimonialsSection = () => {
   };
 
   const getVisibleTestimonials = () => {
-    // For mobile, only show one testimonial
+    // Para telas menores, mostrar apenas um depoimento
     if (typeof window !== 'undefined' && window.innerWidth < 768) {
       return [testimonials[currentIndex]];
     }
     
-    // For larger screens, show multiple testimonials
+    // Para telas maiores, mostrar múltiplos depoimentos
     const items = [];
     for (let i = 0; i < 2; i++) {
       const index = (currentIndex + i) % testimonials.length;
@@ -101,14 +116,14 @@ const TestimonialsSection = () => {
       <div className="container mx-auto">
         <div className="text-center mb-12">
           <span className="inline-block px-4 py-1 bg-floral-burgundy/10 text-floral-burgundy rounded-full text-sm font-medium mb-4 animate-on-scroll">
-            Avaliações
+            Opiniões de Clientes
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 animate-on-scroll text-floral-burgundy">
             O Que Nossos Clientes Dizem
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto animate-on-scroll">
-            Veja o que nossos clientes têm a dizer sobre nossas flores, arranjos e atendimento.
-            Satisfação é nossa prioridade!
+            Veja avaliações reais de clientes sobre nossos produtos, serviços e atendimento.
+            Seu momento de homenagem merece todo nosso cuidado e atenção.
           </p>
         </div>
 
@@ -173,31 +188,14 @@ interface TestimonialCardProps {
 }
 
 const TestimonialCard = ({ testimonial }: TestimonialCardProps) => {
-  // Generate stars based on rating
+  // Gerar estrelas com base na classificação
   const renderStars = (rating: number) => {
     const stars = [];
-    const fullStars = Math.floor(rating);
-    const hasHalfStar = rating % 1 !== 0;
     
-    // Add full stars
-    for (let i = 0; i < fullStars; i++) {
+    // Adicionar estrelas completas
+    for (let i = 0; i < rating; i++) {
       stars.push(
         <Star key={`full-${i}`} className="fill-floral-gold text-floral-gold" size={16} />
-      );
-    }
-    
-    // Add half star if needed
-    if (hasHalfStar) {
-      stars.push(
-        <StarHalf key="half" className="fill-floral-gold text-floral-gold" size={16} />
-      );
-    }
-    
-    // Add empty stars to make total of 5
-    const emptyStars = 5 - Math.ceil(rating);
-    for (let i = 0; i < emptyStars; i++) {
-      stars.push(
-        <Star key={`empty-${i}`} className="text-gray-300" size={16} />
       );
     }
     
