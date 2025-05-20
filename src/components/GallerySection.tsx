@@ -17,8 +17,9 @@ import { ShoppingBag } from 'lucide-react';
 import { openWhatsApp } from '@/utils/whatsapp';
 import { Button } from '@/components/ui/button';
 
-// Categorias de imagens organizadas
+// Categorias de imagens reorganizadas após análise visual
 const categories = {
+  // Coroas de flores - imagens que mostram arranjos circulares/ovais para funerais
   "coroas": [
     "1436283747534662.jpeg",
     "1277281734403665.jpeg",
@@ -26,21 +27,17 @@ const categories = {
     "722629856878437.jpeg",
     "2071026940064082.jpeg",
     "725832239870131.jpeg",
-    "1078517857501677.jpeg",
     "591988233337107.jpeg",
     "1194352558603841.jpeg",
     "1350057442775322.jpeg",
     "1277262153764645.jpeg",
     "1333631967727619.jpeg",
-    "1216088486633199.jpeg",
-    "1039514588126578.jpeg",
-    "1855450545234363.jpeg",
-    "566701519418918.jpeg",
-    "1879302432803728.jpeg",
-    "1025678579199601.jpeg",
-    "1066575648693097.jpeg",
     "1947127676039578.jpeg",
+    "566701519418918.jpeg",
+    "1039514588126578.jpeg",
   ],
+  
+  // Buquês de flores - arranjos para segurar na mão, presentes
   "buques": [
     "1211310727385237.jpeg",
     "1149602736833315.jpeg",
@@ -62,7 +59,15 @@ const categories = {
     "1221306166442975.jpeg",
     "722094213661886.jpeg",
     "1444158630330084.jpeg",
+    "1078517857501677.jpeg",
+    "1855450545234363.jpeg",
+    "1216088486633199.jpeg",
+    "1879302432803728.jpeg",
+    "1025678579199601.jpeg",
+    "1066575648693097.jpeg",
   ],
+  
+  // Cestas e presentes - cestas, arranjos em vasos, presentes
   "cestas": [
     "4133203780233785.jpeg",
     "1022540286729732.jpeg",
@@ -90,14 +95,14 @@ const categories = {
   ],
 };
 
-// Imagens em destaque para o carrossel superior
+// Imagens em destaque para o carrossel superior - uma seleção das melhores de cada categoria
 const featuredImages = [
   "1436283747534662.jpeg", // coroa
   "1211310727385237.jpeg", // buquê
   "4133203780233785.jpeg", // cesta
-  "1277281734403665.jpeg", // coroa
-  "1149602736833315.jpeg", // buquê
-  "1022540286729732.jpeg", // cesta
+  "722629856878437.jpeg", // coroa
+  "1378690923277082.jpeg", // buquê
+  "1570604174326565.jpeg", // cesta
 ];
 
 interface GalleryItemProps {
