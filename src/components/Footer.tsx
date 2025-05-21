@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { ChevronUp, Facebook, Instagram, Phone, Mail, MapPin } from 'lucide-react';
 
@@ -38,6 +39,21 @@ const Footer = () => {
                 aria-label="Facebook"
                 icon={<Facebook className="h-4 w-4" />}
               />
+            </div>
+            
+            <div className="mt-6">
+              <a 
+                href="https://www.reclameaqui.com.br/empresa/soraia-irineia-soares-da-silva/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-block hover:opacity-90 transition-opacity"
+              >
+                <img 
+                  src="/lovable-uploads/2615127b-5131-4dc3-9080-50f69e59499b.png" 
+                  alt="Empresa verificada por ReclameAqui" 
+                  className="h-14 w-auto"
+                />
+              </a>
             </div>
           </div>
 
