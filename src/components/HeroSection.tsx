@@ -1,17 +1,33 @@
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronDown, FileText } from 'lucide-react';
 import { openWhatsApp } from '@/utils/whatsapp';
 
 const HeroSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
+  // Wedding couple images for the slideshow
+  const weddingImages = [
+    "/lovable-uploads/1211310727385237.jpeg",
+    "/lovable-uploads/1322967455452254.jpeg",
+    "/lovable-uploads/1600599350896481.jpeg",
+    "/lovable-uploads/4133203780233785.jpeg",
+  ];
   
   useEffect(() => {
     if (sectionRef.current) {
       sectionRef.current.classList.add('animate-fade-in');
     }
-  }, []);
+    
+    // Auto-rotate the slideshow
+    const interval = setInterval(() => {
+      setCurrentSlide(prev => (prev + 1) % weddingImages.length);
+    }, 5000);
+    
+    return () => clearInterval(interval);
+  }, [weddingImages.length]);
   
   const scrollToGallerySection = () => {
     const gallerySection = document.getElementById('gallery');
@@ -23,10 +39,23 @@ const HeroSection = () => {
   };
   
   return <section id="hero" ref={sectionRef} className="relative min-h-screen flex items-center justify-center pt-16">
-      {/* Background with overlay - Base color (60%) */}
+      {/* Background slideshow */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-white"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/5 to-black/10"></div>
+        {weddingImages.map((img, index) => (
+          <div 
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              currentSlide === index ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <img 
+              src={img} 
+              alt="Floral arrangements" 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40"></div>
+          </div>
+        ))}
       </div>
 
       <div className="container mx-auto px-4 md:px-8 relative z-10 text-center">
@@ -34,15 +63,15 @@ const HeroSection = () => {
           <img 
             src="/lovable-uploads/1876c8f1-db0a-4056-b9db-c9234854c90c.png" 
             alt="Floricultura Laços De Amor" 
-            className="w-64 h-auto mx-auto mb-6 animate-slide-up [animation-delay:300ms]" 
+            className="w-64 h-auto mx-auto mb-6 animate-slide-up [animation-delay:300ms] drop-shadow-lg" 
           />
           
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-floral-burgundy mb-6 leading-tight animate-slide-up [animation-delay:500ms]">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight animate-slide-up [animation-delay:500ms] drop-shadow-lg">
             Floricultura <span className="text-floral-gold">Laços De Amor</span>
           </h1>
           
-          <p className="text-lg md:text-xl text-floral-burgundy/80 mb-8 max-w-2xl mx-auto animate-slide-up [animation-delay:700ms]">
-            Florindo histórias com carinho e atenção para momentos especiais
+          <p className="text-lg md:text-xl text-white mb-8 max-w-2xl mx-auto animate-slide-up [animation-delay:700ms] drop-shadow-md">
+            Florindo histórias com carinho e atenção para momentos especiais da sua vida
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up [animation-delay:900ms] mb-16">
@@ -67,8 +96,8 @@ const HeroSection = () => {
       </div>
 
       {/* Scroll down indicator - Adjusted to be lower */}
-      <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 text-floral-burgundy cursor-pointer animate-bounce" onClick={scrollToGallerySection}>
-        <ChevronDown size={32} />
+      <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 text-white cursor-pointer animate-bounce" onClick={scrollToGallerySection}>
+        <ChevronDown size={32} className="drop-shadow-lg" />
       </div>
     </section>;
 };
