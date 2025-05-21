@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Flower, Basket, Crown } from 'lucide-react';
+import { ArrowRight, Flower, ShoppingBasket, Crown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface CategoryProps {
@@ -33,7 +33,7 @@ const categories: CategoryProps[] = [
       "/lovable-uploads/1379703456612614.jpeg",
       "/lovable-uploads/1896782404474502.jpeg"
     ],
-    icon: <Basket size={24} />,
+    icon: <ShoppingBasket size={24} />,
     color: "bg-yellow-100 text-yellow-700 border-yellow-300"
   },
   {
