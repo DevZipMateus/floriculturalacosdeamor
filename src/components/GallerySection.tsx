@@ -13,9 +13,10 @@ import {
   CardContent, 
   CardFooter 
 } from "@/components/ui/card";
-import { ShoppingBag } from 'lucide-react';
+import { ShoppingBag, Image } from 'lucide-react';
 import { openWhatsApp } from '@/utils/whatsapp';
 import { Button } from '@/components/ui/button';
+import LightboxDialog from './LightboxDialog';
 
 // Categorias de imagens reorganizadas após análise visual
 const categories = {
@@ -113,23 +114,14 @@ const featuredImages = [
 interface GalleryItemProps {
   image: string;
   category: string;
+  onImageClick: (image: string, category: string) => void;
 }
 
-const GalleryItem: React.FC<GalleryItemProps> = ({ image, category }) => {
-  const handleClick = () => {
-    const categoryName = {
-      "coroas": "Coroa de Flores",
-      "buques": "Buquê de Flores",
-      "cestas": "Cesta/Presente"
-    }[category];
-    
-    openWhatsApp(`Olá! Gostaria de saber mais sobre este produto: ${categoryName}`);
-  };
-
+const GalleryItem: React.FC<GalleryItemProps> = ({ image, category, onImageClick }) => {
   return (
     <div 
       className="relative group cursor-pointer overflow-hidden rounded-lg transition-all duration-300 hover:shadow-xl"
-      onClick={handleClick}
+      onClick={() => onImageClick(image, category)}
     >
       <img 
         src={`/lovable-uploads/${image}`} 
@@ -141,8 +133,8 @@ const GalleryItem: React.FC<GalleryItemProps> = ({ image, category }) => {
           size="sm" 
           className="w-full bg-floral-burgundy hover:bg-floral-burgundy/90 text-white gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         >
-          <ShoppingBag size={16} />
-          <span>Ver Detalhes</span>
+          <Image size={16} />
+          <span>Ampliar Imagem</span>
         </Button>
       </div>
     </div>
@@ -151,6 +143,9 @@ const GalleryItem: React.FC<GalleryItemProps> = ({ image, category }) => {
 
 const GallerySection = () => {
   const [activeTab, setActiveTab] = useState("coroas");
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImage, setCurrentImage] = useState("");
+  const [currentCategory, setCurrentCategory] = useState("coroas");
   
   // Add effect to listen for URL hash changes
   useEffect(() => {
@@ -185,6 +180,13 @@ const GallerySection = () => {
   useEffect(() => {
     console.log(`GallerySection: Active tab is now ${activeTab}`);
   }, [activeTab]);
+
+  const handleImageClick = (image: string, category: string) => {
+    setCurrentImage(image);
+    setCurrentCategory(category);
+    setLightboxOpen(true);
+    console.log(`Opening lightbox for image: ${image} from category: ${category}`);
+  };
   
   return (
     <section id="gallery" className="py-16 bg-gray-50">
@@ -197,6 +199,14 @@ const GallerySection = () => {
             Conheça nossos produtos e escolha o que melhor combina com o seu momento especial
           </p>
         </div>
+
+        {/* Lightbox Dialog */}
+        <LightboxDialog 
+          open={lightboxOpen}
+          onOpenChange={setLightboxOpen}
+          image={currentImage}
+          category={currentCategory}
+        />
 
         {/* Featured carousel */}
         <div className="mb-16 animate-on-scroll">
@@ -214,7 +224,14 @@ const GallerySection = () => {
               {featuredImages.map((image, index) => (
                 <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                   <Card className="border-0 shadow-lg overflow-hidden">
-                    <CardContent className="p-0">
+                    <CardContent className="p-0 cursor-pointer" onClick={() => {
+                      let category = "outros";
+                      if (categories.coroas.includes(image)) category = "coroas";
+                      else if (categories.buques.includes(image)) category = "buques";
+                      else if (categories.cestas.includes(image)) category = "cestas";
+                      
+                      handleImageClick(image, category);
+                    }}>
                       <img 
                         src={`/lovable-uploads/${image}`} 
                         alt={`Destaque ${index + 1}`}
@@ -291,7 +308,12 @@ const GallerySection = () => {
           <TabsContent value="coroas" className="mt-0">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {categories.coroas.map((image, index) => (
-                <GalleryItem key={index} image={image} category="coroas" />
+                <GalleryItem 
+                  key={index} 
+                  image={image} 
+                  category="coroas" 
+                  onImageClick={handleImageClick} 
+                />
               ))}
             </div>
           </TabsContent>
@@ -300,7 +322,12 @@ const GallerySection = () => {
           <TabsContent value="buques" className="mt-0">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {categories.buques.map((image, index) => (
-                <GalleryItem key={index} image={image} category="buques" />
+                <GalleryItem 
+                  key={index} 
+                  image={image} 
+                  category="buques" 
+                  onImageClick={handleImageClick} 
+                />
               ))}
             </div>
           </TabsContent>
@@ -309,7 +336,12 @@ const GallerySection = () => {
           <TabsContent value="cestas" className="mt-0">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {categories.cestas.map((image, index) => (
-                <GalleryItem key={index} image={image} category="cestas" />
+                <GalleryItem 
+                  key={index} 
+                  image={image} 
+                  category="cestas" 
+                  onImageClick={handleImageClick} 
+                />
               ))}
             </div>
           </TabsContent>
