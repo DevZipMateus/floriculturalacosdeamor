@@ -88,7 +88,11 @@ const HeroSection = () => {
               className="quote-btn hover:border-floral-gold hover:bg-secondary/70 group rounded-md shadow-md transition-all duration-300 flex gap-2 bg-floral-gold text-floral-burgundy hover:text-floral-burgundy"
               onClick={() => openWhatsApp('Olá! Gostaria de solicitar um orçamento para os serviços da Floricultura Laços de Amor.')}
             >
-              <FileText size={20} className="group-hover:animate-pulse" />
+              <img 
+                src="/lovable-uploads/e5c365ac-2ba0-4157-bb97-d6821651fde1.png" 
+                alt="WhatsApp" 
+                className="w-5 h-5 group-hover:animate-pulse" 
+              />
               <span>Solicitar Orçamento</span>
             </Button>
           </div>
