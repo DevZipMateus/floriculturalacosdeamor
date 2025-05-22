@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { 
   Carousel,
@@ -152,6 +152,40 @@ const GalleryItem: React.FC<GalleryItemProps> = ({ image, category }) => {
 const GallerySection = () => {
   const [activeTab, setActiveTab] = useState("coroas");
   
+  // Add effect to listen for URL hash changes
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      
+      if (hash.includes('#gallery-')) {
+        const category = hash.replace('#gallery-', '');
+        
+        // Validate that the category exists
+        if (["coroas", "buques", "cestas"].includes(category)) {
+          console.log(`GallerySection: Setting active tab to ${category} from hash`);
+          setActiveTab(category);
+        } else {
+          console.warn(`GallerySection: Unknown category in hash: ${category}`);
+        }
+      }
+    };
+    
+    // Check hash on component mount
+    handleHashChange();
+    
+    // Listen for hash changes
+    window.addEventListener('hashchange', handleHashChange);
+    
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+    };
+  }, []);
+  
+  // Logging when active tab changes for debugging
+  useEffect(() => {
+    console.log(`GallerySection: Active tab is now ${activeTab}`);
+  }, [activeTab]);
+  
   return (
     <section id="gallery" className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
@@ -227,9 +261,30 @@ const GallerySection = () => {
           className="animate-on-scroll"
         >
           <TabsList className="grid w-full grid-cols-3 mb-8">
-            <TabsTrigger value="coroas" data-value="coroas" className="text-lg">Coroas de Flores</TabsTrigger>
-            <TabsTrigger value="buques" data-value="buques" className="text-lg">Buquês de Flores</TabsTrigger>
-            <TabsTrigger value="cestas" data-value="cestas" className="text-lg">Cestas & Presentes</TabsTrigger>
+            <TabsTrigger 
+              value="coroas" 
+              data-value="coroas" 
+              className="text-lg"
+              data-active={activeTab === "coroas"}
+            >
+              Coroas de Flores
+            </TabsTrigger>
+            <TabsTrigger 
+              value="buques" 
+              data-value="buques" 
+              className="text-lg"
+              data-active={activeTab === "buques"}
+            >
+              Buquês de Flores
+            </TabsTrigger>
+            <TabsTrigger 
+              value="cestas" 
+              data-value="cestas" 
+              className="text-lg"
+              data-active={activeTab === "cestas"}
+            >
+              Cestas & Presentes
+            </TabsTrigger>
           </TabsList>
           
           {/* Coroas de Flores */}

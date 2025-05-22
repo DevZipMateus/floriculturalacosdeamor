@@ -67,10 +67,26 @@ const CategoryCard = ({ category }: { category: CategoryProps }) => {
     // Get the correct hash value for this category
     const hashValue = categoryToHash[category.title];
     
-    // Navigate using the hash - this will trigger the hash change handler in Index.tsx
-    window.location.hash = `gallery-${hashValue}`;
+    if (!hashValue) {
+      console.error(`No hash mapping found for category: ${category.title}`);
+      return;
+    }
     
-    console.log(`Navigating to gallery with category: ${hashValue}`);
+    // Log the navigation intent
+    console.log(`CategoryHighlights: Navigating to gallery with category: ${hashValue}`);
+    
+    // First, scroll to the gallery section
+    const gallerySection = document.getElementById('gallery');
+    if (gallerySection) {
+      gallerySection.scrollIntoView({ behavior: 'smooth' });
+    }
+    
+    // Set the hash after a small delay to ensure smooth scrolling
+    setTimeout(() => {
+      // Navigate using the hash - this will trigger the hash change handler
+      window.location.hash = `gallery-${hashValue}`;
+      console.log(`CategoryHighlights: Set hash to #gallery-${hashValue}`);
+    }, 100);
   };
   
   return (
