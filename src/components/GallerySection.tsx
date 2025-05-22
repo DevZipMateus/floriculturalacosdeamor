@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { 
@@ -281,26 +280,26 @@ const GallerySection = () => {
             <TabsTrigger 
               value="coroas" 
               data-value="coroas" 
-              className="text-lg"
+              className="text-sm md:text-base flex flex-col items-center justify-center h-full py-3"
               data-active={activeTab === "coroas"}
             >
-              Coroas de Flores
+              <span className="line-clamp-2">Coroas de Flores</span>
             </TabsTrigger>
             <TabsTrigger 
               value="buques" 
               data-value="buques" 
-              className="text-lg"
+              className="text-sm md:text-base flex flex-col items-center justify-center h-full py-3"
               data-active={activeTab === "buques"}
             >
-              Buquês de Flores
+              <span className="line-clamp-2">Buquês de Flores</span>
             </TabsTrigger>
             <TabsTrigger 
               value="cestas" 
               data-value="cestas" 
-              className="text-lg"
+              className="text-sm md:text-base flex flex-col items-center justify-center h-full py-3"
               data-active={activeTab === "cestas"}
             >
-              Cestas & Presentes
+              <span className="line-clamp-2">Cestas & Presentes</span>
             </TabsTrigger>
           </TabsList>
           
