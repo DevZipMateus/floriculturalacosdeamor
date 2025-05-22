@@ -30,30 +30,45 @@ const Index = () => {
     // Trigger once on load
     handleScroll();
     
-    // Permitir navegação por categoria via hash na URL
+    // Handle navigation by category via hash in URL
     const handleHashChange = () => {
       const hash = window.location.hash;
+      
       if (hash.includes('#gallery-')) {
         const category = hash.replace('#gallery-', '');
-        const tabTrigger = document.querySelector(`[data-value="${category}"]`);
-        if (tabTrigger) {
-          // Primeiro role até a galeria
-          const gallery = document.getElementById('gallery');
-          if (gallery) {
-            gallery.scrollIntoView({ behavior: 'smooth' });
+        // Map the hash value to the tab value used in the gallery
+        const tabValueMap: Record<string, string> = {
+          'buques': 'buques',
+          'cestas': 'cestas',
+          'coroas': 'coroas'
+        };
+        
+        const tabValue = tabValueMap[category] || category;
+        
+        // First scroll to gallery section
+        const gallery = document.getElementById('gallery');
+        if (gallery) {
+          gallery.scrollIntoView({ behavior: 'smooth' });
+          
+          // After a delay, click on the correct tab
+          setTimeout(() => {
+            const tabTrigger = document.querySelector(`[data-value="${tabValue}"]`);
             
-            // Depois de um pequeno atraso, clique na aba correta
-            setTimeout(() => {
+            if (tabTrigger) {
+              console.log(`Clicking on tab: ${tabValue}`);
               (tabTrigger as HTMLElement).click();
-            }, 800);
-          }
+            } else {
+              console.log(`Tab with data-value="${tabValue}" not found`);
+            }
+          }, 800);
         }
       }
     };
     
-    // Verificar hash na carga inicial
-    handleHashChange();
-    // Adicionar listener para mudanças futuras de hash
+    // Check hash on initial page load
+    setTimeout(handleHashChange, 500); // Adding a bit more delay for initial load
+    
+    // Add listener for future hash changes
     window.addEventListener('hashchange', handleHashChange);
     
     return () => {
