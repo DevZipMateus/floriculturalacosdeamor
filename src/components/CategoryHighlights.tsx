@@ -57,21 +57,20 @@ const CategoryCard = ({ category }: { category: CategoryProps }) => {
   };
   
   const handleGalleryNavigation = () => {
-    const gallerySection = document.getElementById('gallery');
-    if (gallerySection) {
-      // First navigate to gallery
-      gallerySection.scrollIntoView({ behavior: 'smooth' });
-      
-      // Then after a small delay, trigger click on the appropriate tab
-      setTimeout(() => {
-        const tabValue = category.title === "Buquê de Flores" ? "buques" : 
-                         category.title === "Cestas" ? "cestas" : "coroas";
-        const tabTrigger = document.querySelector(`[data-value="${tabValue}"]`);
-        if (tabTrigger) {
-          (tabTrigger as HTMLElement).click();
-        }
-      }, 800);
-    }
+    // Create mapping for categories to hash values
+    const categoryToHash: Record<string, string> = {
+      "Buquê de Flores": "buques",
+      "Cestas": "cestas",
+      "Coroas de Flores": "coroas"
+    };
+    
+    // Get the correct hash value for this category
+    const hashValue = categoryToHash[category.title];
+    
+    // Navigate using the hash - this will trigger the hash change handler in Index.tsx
+    window.location.hash = `gallery-${hashValue}`;
+    
+    console.log(`Navigating to gallery with category: ${hashValue}`);
   };
   
   return (
