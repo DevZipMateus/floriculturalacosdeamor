@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Phone, Mail, MapPin, Clock, Linkedin, Facebook, Instagram } from 'lucide-react';
@@ -30,8 +29,8 @@ const ContactSection = () => {
     {
       icon: <Phone className="h-5 w-5 text-floral-gold" />,
       title: "Telefone",
-      details: "(62) 98146-4070",
-      link: "tel:+5562981464070"
+      details: "0800 181 3000",
+      link: "tel:08001813000"
     },
     {
       icon: <Mail className="h-5 w-5 text-floral-gold" />,
@@ -42,13 +41,13 @@ const ContactSection = () => {
     {
       icon: <MapPin className="h-5 w-5 text-floral-gold" />,
       title: "Endereço",
-      details: "Rua Manaus, Goiás",
+      details: "Rua Armogaste José da Silva, Setor Centro-Oeste, Goiânia-GO, 74560-475",
       link: "https://maps.google.com"
     },
     {
       icon: <Clock className="h-5 w-5 text-floral-gold" />,
       title: "Horário",
-      details: "Atendimento Online",
+      details: "Atendimento Online 24 horas",
       link: null
     }
   ];

@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { ChevronUp, Facebook, Instagram, Phone, Mail, MapPin } from 'lucide-react';
 
@@ -91,7 +90,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center gap-2">
                 <Mail size={18} className="text-floral-gold" />
-                <span className="text-white/80">contato@lacosdeamor.com.br</span>
+                <span className="text-white/80">soraia-irineia@hotmail.com</span>
               </li>
               <li className="flex items-center gap-2">
                 <Phone size={18} className="text-floral-gold" />
