@@ -254,7 +254,10 @@ const GallerySection = () => {
                             "outros": "Produto"
                           }[category];
                           
-                          openWhatsApp(`Olá! Gostaria de saber mais sobre este produto em destaque: ${categoryName}`);
+                          const imageUrl = `https://floriculturalacosdeamor.com.br/lovable-uploads/${image}`;
+                          const message = `Olá! Gostaria de saber mais sobre este produto em destaque: ${categoryName}`;
+                          
+                          openWhatsApp(message, imageUrl);
                         }}
                       >
                         <ShoppingBag className="mr-2 h-4 w-4" /> Ver Detalhes

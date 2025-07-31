@@ -26,7 +26,10 @@ const LightboxDialog: React.FC<LightboxDialogProps> = ({
 }) => {
   const handleWhatsAppClick = () => {
     const categoryName = categoryNames[category] || "Produto";
-    openWhatsApp(`Olá! Gostaria de obter mais informações sobre este ${categoryName} que vi na galeria.`);
+    const imageUrl = `https://floriculturalacosdeamor.com.br/lovable-uploads/${image}`;
+    const message = `Olá! Gostaria de comprar esta ${categoryName}:`;
+    
+    openWhatsApp(message, imageUrl);
     onOpenChange(false);
   };
 
