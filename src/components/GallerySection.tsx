@@ -254,6 +254,7 @@ const GallerySection = () => {
                             "outros": "Produto"
                           }[category];
                           
+                          // Use the original URL construction but the openWhatsApp function will mask it
                           const imageUrl = `https://floriculturalacosdeamor.com.br/lovable-uploads/${image}`;
                           const message = `Olá! Gostaria de saber mais sobre este produto em destaque: ${categoryName}`;
                           

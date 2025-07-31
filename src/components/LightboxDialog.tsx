@@ -26,6 +26,7 @@ const LightboxDialog: React.FC<LightboxDialogProps> = ({
 }) => {
   const handleWhatsAppClick = () => {
     const categoryName = categoryNames[category] || "Produto";
+    // Use the original URL construction but the openWhatsApp function will mask it
     const imageUrl = `https://floriculturalacosdeamor.com.br/lovable-uploads/${image}`;
     const message = `Olá! Gostaria de comprar esta ${categoryName}:`;
     
