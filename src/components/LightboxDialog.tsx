@@ -27,7 +27,7 @@ const LightboxDialog: React.FC<LightboxDialogProps> = ({
   const handleWhatsAppClick = () => {
     const categoryName = categoryNames[category] || "Produto";
     // Use the original URL construction but the openWhatsApp function will mask it
-    const imageUrl = `https://floriculturalacosdeamor.com.br/lovable-uploads/${image}`;
+    const imageUrl = `https://floriculturalacosdeamor.com.br/galeria/${image}`;
     const message = `Olá! Gostaria de comprar esta ${categoryName}:`;
     
     openWhatsApp(message, imageUrl);
@@ -48,7 +48,7 @@ const LightboxDialog: React.FC<LightboxDialogProps> = ({
         <div className="flex flex-col items-center">
           <div className="relative w-full max-h-[70vh] overflow-hidden">
             <img 
-              src={`/lovable-uploads/${image}`} 
+              src={`/galeria/${image}`} 
               alt={`${categoryNames[category]} ampliado`}
               className="w-full h-auto object-contain max-h-[70vh]"
             />

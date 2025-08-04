@@ -46,8 +46,8 @@ const Header = () => {
           <a href="#" className="relative z-20">
             <div className="flex items-center">
               <img 
-                src="/lovable-uploads/1876c8f1-db0a-4056-b9db-c9234854c90c.png" 
-                alt="Laços de Amor Logo" 
+                src="/galeria/1876c8f1-db0a-4056-b9db-c9234854c90c.png" 
+                alt="Laços de Amor Logo"
                 className="h-12 w-auto mr-2"
               />
               <h1 className="text-2xl font-display font-bold text-floral-burgundy hidden md:block">

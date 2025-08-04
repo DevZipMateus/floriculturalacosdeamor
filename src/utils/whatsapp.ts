@@ -1,6 +1,6 @@
 
 /**
- * Creates a masked URL for images to hide the lovable-uploads folder
+ * Creates a masked URL for images to hide the galeria folder
  * @param imageName The image filename
  * @returns A masked URL path
  */

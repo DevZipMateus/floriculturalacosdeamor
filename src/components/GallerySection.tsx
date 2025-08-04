@@ -123,7 +123,7 @@ const GalleryItem: React.FC<GalleryItemProps> = ({ image, category, onImageClick
       onClick={() => onImageClick(image, category)}
     >
       <img 
-        src={`/lovable-uploads/${image}`} 
+        src={`/galeria/${image}`} 
         alt={`Produto: ${category}`}
         className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
       />
@@ -232,7 +232,7 @@ const GallerySection = () => {
                       handleImageClick(image, category);
                     }}>
                       <img 
-                        src={`/lovable-uploads/${image}`} 
+                        src={`/galeria/${image}`} 
                         alt={`Destaque ${index + 1}`}
                         className="w-full h-64 object-cover"
                       />
@@ -255,7 +255,7 @@ const GallerySection = () => {
                           }[category];
                           
                           // Use the original URL construction but the openWhatsApp function will mask it
-                          const imageUrl = `https://floriculturalacosdeamor.com.br/lovable-uploads/${image}`;
+                          const imageUrl = `https://floriculturalacosdeamor.com.br/galeria/${image}`;
                           const message = `Olá! Gostaria de saber mais sobre este produto em destaque: ${categoryName}`;
                           
                           openWhatsApp(message, imageUrl);

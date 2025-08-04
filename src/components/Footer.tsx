@@ -16,8 +16,8 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center">
               <img 
-                src="/lovable-uploads/1876c8f1-db0a-4056-b9db-c9234854c90c.png" 
-                alt="Laços de Amor Logo" 
+                src="/galeria/1876c8f1-db0a-4056-b9db-c9234854c90c.png" 
+                alt="Laços de Amor Logo"
                 className="h-16 w-auto mr-3"
               />
               <h3 className="text-xl font-bold">
@@ -48,8 +48,8 @@ const Footer = () => {
                 className="inline-block hover:opacity-90 transition-opacity"
               >
                 <img 
-                  src="/lovable-uploads/2615127b-5131-4dc3-9080-50f69e59499b.png" 
-                  alt="Empresa verificada por ReclameAqui" 
+                  src="/galeria/2615127b-5131-4dc3-9080-50f69e59499b.png" 
+                  alt="Empresa verificada por ReclameAqui"
                   className="h-14 w-auto"
                 />
               </a>

@@ -10,10 +10,10 @@ const HeroSection = () => {
   
   // Wedding couple images for the slideshow
   const weddingImages = [
-    "/lovable-uploads/1211310727385237.jpeg",
-    "/lovable-uploads/1322967455452254.jpeg",
-    "/lovable-uploads/1600599350896481.jpeg",
-    "/lovable-uploads/4133203780233785.jpeg",
+    "/galeria/1211310727385237.jpeg",
+    "/galeria/1322967455452254.jpeg",
+    "/galeria/1600599350896481.jpeg",
+    "/galeria/4133203780233785.jpeg",
   ];
   
   useEffect(() => {
@@ -61,8 +61,8 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 md:px-8 relative z-10 text-center">
         <div className="max-w-4xl mx-auto">
           <img 
-            src="/lovable-uploads/1876c8f1-db0a-4056-b9db-c9234854c90c.png" 
-            alt="Floricultura Laços De Amor" 
+            src="/galeria/1876c8f1-db0a-4056-b9db-c9234854c90c.png" 
+            alt="Floricultura Laços De Amor"
             className="w-64 h-auto mx-auto mb-6 animate-slide-up [animation-delay:300ms] drop-shadow-lg" 
           />
           
@@ -89,8 +89,8 @@ const HeroSection = () => {
               onClick={() => openWhatsApp('Olá! Gostaria de solicitar um orçamento para os serviços da Floricultura Laços de Amor.')}
             >
               <img 
-                src="/lovable-uploads/e5c365ac-2ba0-4157-bb97-d6821651fde1.png" 
-                alt="WhatsApp" 
+                src="/galeria/e5c365ac-2ba0-4157-bb97-d6821651fde1.png" 
+                alt="WhatsApp"
                 className="w-5 h-5 group-hover:animate-pulse" 
               />
               <span>Solicitar Orçamento</span>

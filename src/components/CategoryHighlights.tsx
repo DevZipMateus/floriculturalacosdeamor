@@ -18,9 +18,9 @@ const categories: CategoryProps[] = [
     title: "Buquê de Flores",
     description: "Montamos buquês de Flores naturais que refletem o amor, a emoção e a beleza do momento. Criamos memórias que durarão para sempre.",
     images: [
-      "/lovable-uploads/1322967455452254.jpeg",
-      "/lovable-uploads/1744257336484288.jpeg",
-      "/lovable-uploads/1600599350896481.jpeg"
+      "/galeria/1322967455452254.jpeg",
+      "/galeria/1744257336484288.jpeg",
+      "/galeria/1600599350896481.jpeg"
     ],
     icon: <Flower size={24} />,
     color: "bg-pink-100 text-pink-700 border-pink-300"
@@ -29,9 +29,9 @@ const categories: CategoryProps[] = [
     title: "Cestas",
     description: "Produzimos cestas personalizadas que combinam criatividade e autenticidade, seja para marcar fases especiais ou celebrar conexões familiares.",
     images: [
-      "/lovable-uploads/1378690923277082.jpeg",
-      "/lovable-uploads/1379703456612614.jpeg",
-      "/lovable-uploads/1896782404474502.jpeg"
+      "/galeria/1378690923277082.jpeg",
+      "/galeria/1379703456612614.jpeg",
+      "/galeria/1896782404474502.jpeg"
     ],
     icon: <ShoppingBasket size={24} />,
     color: "bg-yellow-100 text-yellow-700 border-yellow-300"
@@ -40,9 +40,9 @@ const categories: CategoryProps[] = [
     title: "Coroas de Flores",
     description: "Estamos ao seu lado em todos os momentos, temos lindas coroas de flores que representam seus sentimentos mais do que palavras.",
     images: [
-      "/lovable-uploads/1436283747534662.jpeg",
-      "/lovable-uploads/1277281734403665.jpeg",
-      "/lovable-uploads/685492667537964.jpeg"
+      "/galeria/1436283747534662.jpeg",
+      "/galeria/1277281734403665.jpeg",
+      "/galeria/685492667537964.jpeg"
     ],
     icon: <Crown size={24} />,
     color: "bg-purple-100 text-purple-700 border-purple-300"

@@ -79,7 +79,7 @@ const ProductRedirect = () => {
   useEffect(() => {
     if (id && imageMap[id]) {
       // Redirecionar para a imagem real
-      const imageUrl = `/lovable-uploads/${imageMap[id]}`;
+      const imageUrl = `/galeria/${imageMap[id]}`;
       window.location.href = imageUrl;
     }
   }, [id]);
