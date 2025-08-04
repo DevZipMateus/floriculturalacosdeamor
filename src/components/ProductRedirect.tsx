@@ -78,13 +78,26 @@ const ProductRedirect = () => {
 
   useEffect(() => {
     if (id && imageMap[id]) {
-      // Redirecionar para a imagem real
+      // Verificar se a imagem existe antes de redirecionar
       const imageUrl = `/galeria/${imageMap[id]}`;
-      window.location.href = imageUrl;
+      const img = new Image();
+      
+      img.onload = () => {
+        // Imagem existe, redirecionar
+        window.location.href = imageUrl;
+      };
+      
+      img.onerror = () => {
+        // Imagem não existe, redirecionar para galeria
+        console.warn(`Imagem não encontrada: ${imageUrl}`);
+        window.location.href = '/#galeria';
+      };
+      
+      img.src = imageUrl;
     }
   }, [id]);
 
-  // Se o ID não existir, redirecionar para a galeria
+  // Se o ID não existir no mapeamento, redirecionar para a galeria
   if (!id || !imageMap[id]) {
     return <Navigate to="/#galeria" replace />;
   }
