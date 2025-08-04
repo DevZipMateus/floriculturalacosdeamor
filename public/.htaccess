@@ -1,7 +1,7 @@
 # Enable Rewrite Engine
 RewriteEngine On
 
-# Handle Angular/React Router - send all requests to index.html
+# Handle React Router - send all non-file requests to index.html
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^.*$ /index.html [L]
