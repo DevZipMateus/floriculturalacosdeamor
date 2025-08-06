@@ -80,7 +80,7 @@ const HeroSection = () => {
               className="rounded-md shadow-md transition-all duration-300 bg-floral-burgundy hover:bg-floral-burgundy/90 text-white"
               onClick={() => scrollToGallerySection()}
             >
-              Nossos Arranjos
+              Ver coroas e Buquês disponíveis
             </Button>
             <Button 
               size="lg" 
