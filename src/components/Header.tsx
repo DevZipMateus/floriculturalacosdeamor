@@ -107,9 +107,9 @@ interface NavLinksProps {
 const NavLinks = ({ mobile, onClick }: NavLinksProps) => {
   const links = [
     { name: 'Início', href: '#hero' },
-    { name: 'Nossos Produtos', href: '#about' },
+    { name: 'Nossos Produtos', href: '#category-highlights' },
     { name: 'Coroa de flores', href: '#services' },
-    { name: 'Buque e Presente', href: '#contact' },
+    { name: 'Buque e Presente', href: '#gallery' },
   ];
 
   return (
