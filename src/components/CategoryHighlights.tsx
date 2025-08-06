@@ -145,7 +145,7 @@ const CategoryHighlights = () => {
             Nossas Especialidades
           </h2>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-            Explore nossas categorias e descubra produtos criados com carinho para cada momento da sua vida
+            Coroas de flores, buques e cestas de presentes com entrega em goiania e regiao
           </p>
         </div>
         
