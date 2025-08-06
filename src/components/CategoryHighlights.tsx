@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -15,7 +16,7 @@ interface CategoryProps {
 const categories: CategoryProps[] = [
   {
     title: "Buquê de Flores",
-    description: "Buques de flores naturais com entrega rapida em goinaia. Ideais para aniversarios, declarações de amor ou surpresas inesquecíveis",
+    description: "Buquês de flores naturais com entrega rápida em Goiânia. Ideais para aniversários, declarações de amor ou surpresas inesquecíveis",
     images: [
       "/galeria/1322967455452254.jpeg",
       "/galeria/1744257336484288.jpeg",
@@ -26,7 +27,7 @@ const categories: CategoryProps[] = [
   },
   {
     title: "Cestas",
-    description: "Cestas com chocolates, flores e mimos personalizados sob encomenda. Entregamos em goiania com carinho em até 3 horas. Perfeitos para presentes",
+    description: "Cestas com chocolates, flores e mimos personalizados sob encomenda. Entregamos em Goiânia com carinho em até 3 horas. Perfeitos para presentes",
     images: [
       "/galeria/1378690923277082.jpeg",
       "/galeria/1379703456612614.jpeg",
@@ -37,7 +38,7 @@ const categories: CategoryProps[] = [
   },
   {
     title: "Coroas de Flores",
-    description: "Coraa de fores para velório com entrega imediata em cemiterios de goiania e região. homenagens com delicadeza com respeito e pontualidade",
+    description: "Coroas de flores para velório com entrega imediata em cemitérios de Goiânia e região. Homenagens com delicadeza, com respeito e pontualidade",
     images: [
       "/galeria/1436283747534662.jpeg",
       "/galeria/1277281734403665.jpeg",
@@ -144,7 +145,7 @@ const CategoryHighlights = () => {
             Nossas Especialidades
           </h2>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-            Coroas de flores, buques e cestas de presentes com entrega em goiania e regiao
+            Coroas de flores, buquês e cestas de presentes com entrega em Goiânia e região
           </p>
         </div>
         
