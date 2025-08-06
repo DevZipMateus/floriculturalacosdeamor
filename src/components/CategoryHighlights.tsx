@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -26,7 +27,7 @@ const categories: CategoryProps[] = [
   },
   {
     title: "Cestas",
-    description: "Produzimos cestas personalizadas que combinam criatividade e autenticidade, seja para marcar fases especiais ou celebrar conexões familiares.",
+    description: "Cestas com chocolates, flores e mimos personalizados sob encomenda. Entregamos em goiania com carinho em até 3 horas. Perfeitos para presentes",
     images: [
       "/galeria/1378690923277082.jpeg",
       "/galeria/1379703456612614.jpeg",
