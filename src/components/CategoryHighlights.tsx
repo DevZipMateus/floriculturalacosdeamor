@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -38,7 +37,7 @@ const categories: CategoryProps[] = [
   },
   {
     title: "Coroas de Flores",
-    description: "Estamos ao seu lado em todos os momentos, temos lindas coroas de flores que representam seus sentimentos mais do que palavras.",
+    description: "Coraa de fores para velório com entrega imediata em cemiterios de goiania e região. homenagens com delicadeza com respeito e pontualidade",
     images: [
       "/galeria/1436283747534662.jpeg",
       "/galeria/1277281734403665.jpeg",
