@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -16,7 +15,7 @@ interface CategoryProps {
 const categories: CategoryProps[] = [
   {
     title: "Buquê de Flores",
-    description: "Montamos buquês de Flores naturais que refletem o amor, a emoção e a beleza do momento. Criamos memórias que durarão para sempre.",
+    description: "Buques de flores naturais com entrega rapida em goinaia. Ideais para aniversarios, declarações de amor ou surpresas inesquecíveis",
     images: [
       "/galeria/1322967455452254.jpeg",
       "/galeria/1744257336484288.jpeg",
