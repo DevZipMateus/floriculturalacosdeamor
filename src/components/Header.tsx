@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X, FileText } from 'lucide-react';
@@ -63,7 +64,7 @@ const Header = () => {
               onClick={() => openWhatsApp()}
             >
               <FileText size={18} />
-              Fale Conosco
+              Falar com Vendas
             </Button>
           </nav>
 
@@ -85,7 +86,7 @@ const Header = () => {
                       onClick={() => openWhatsApp()}
                     >
                       <FileText size={18} />
-                      Fale Conosco
+                      Falar com Vendas
                     </Button>
                   </SheetClose>
                 </nav>
