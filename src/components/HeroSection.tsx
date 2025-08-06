@@ -45,7 +45,7 @@ const HeroSection = () => {
         <div className="max-w-4xl mx-auto">
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight animate-slide-up [animation-delay:500ms] drop-shadow-lg">
-            Floricultura <span className="text-floral-gold">Laços De Amor</span>
+            Coroa de flores com entrega rápida em <span className="text-floral-gold">Goiania e regiao</span>
           </h1>
           
           <p className="text-lg md:text-xl text-white mb-8 max-w-2xl mx-auto animate-slide-up [animation-delay:700ms] drop-shadow-md">
