@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X, FileText } from 'lucide-react';
@@ -51,7 +50,7 @@ const Header = () => {
                 className="h-12 w-auto mr-2"
               />
               <h1 className="text-2xl font-display font-bold text-floral-burgundy hidden md:block">
-                Laços De Amor
+                Floricultura Laços de Amor
               </h1>
             </div>
           </a>
