@@ -34,7 +34,7 @@ const AboutSection = () => {
             Sobre Nós
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 animate-on-scroll">
-            Transformamos momentos em arte e histórias em memórias inesquecíveis
+            Floricultura em Goiania em transforma homenagens e presentes em memorias inesquecíveis
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto animate-on-scroll">
             Mais do que Floricultura, somos contadores de histórias que capturam a essência de cada instante com sensibilidade e perfeição.
