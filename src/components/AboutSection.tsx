@@ -45,7 +45,7 @@ const AboutSection = () => {
           <div className="space-y-6">
             <div className="animate-on-scroll">
               <h3 className="text-2xl font-bold mb-4">
-                Escolha a excelência. Escolha viver seus momentos através dos nossos produtos.
+                Produtos florais feitos com carinho, rapidez e excelência para presentear, homenagear ou marcar um momento especial em Goiânia
               </h3>
               <p className="text-muted-foreground mb-6">
                 Nosso trabalho é guiado pela paixão em proporcionar o que há de mais especial na vida: emoções genuínas, conexões verdadeiras e a beleza única de cada detalhe. Acreditamos que os nossos produtos vão além de uma imagem; ela é um legado que atravessa o tempo, preservando lembranças e sentimentos.
