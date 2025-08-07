@@ -44,15 +44,34 @@ const AboutSection = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <div className="animate-on-scroll">
-              <h3 className="text-2xl font-bold mb-4">
-                Produtos florais feitos com carinho, rapidez e excelência para presentear, homenagear ou marcar um momento especial em Goiânia
-              </h3>
-              <p className="text-muted-foreground mb-6">
-                Nossa essência é transformar sentimentos em flores.
-              </p>
-              <p className="text-muted-foreground mb-6">
-                Com um olhar criativo, garantimos produtos personalizados que traduzem sua personalidade e estilo. Seja para um pedido de desculpas, datas especiais, eventos ou até mesmo um funeral, estamos aqui para criar imagens que falem por si e emocionem por gerações.
-              </p>
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-xl font-bold mb-3">
+                    Nossa essência é transformar sentimentos em flores.
+                  </h3>
+                  <p className="text-muted-foreground">
+                    Trabalhamos com paixão para oferecer mais do que arranjos. Criamos experiências que tocam o coração.
+                  </p>
+                </div>
+                
+                <div>
+                  <h3 className="text-xl font-bold mb-3">
+                    Qualidade e detalhes que fazem a diferença.
+                  </h3>
+                  <p className="text-muted-foreground">
+                    Cada flor é escolhida com cuidado, nossos produtos são montados artesanalmente com acabamentos impecáveis.
+                  </p>
+                </div>
+                
+                <div>
+                  <h3 className="text-xl font-bold mb-3">
+                    Entrega rápida com carinho.
+                  </h3>
+                  <p className="text-muted-foreground">
+                    Entregamos com pontualidade em Goiânia e região, inclusive em cemitérios, igrejas e locais de homenagem.
+                  </p>
+                </div>
+              </div>
               <ul className="space-y-3">
                 {[
                   'Equipe de profissionais qualificados',
