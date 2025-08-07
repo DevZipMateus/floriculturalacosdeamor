@@ -114,7 +114,12 @@ const CategoryCard = ({ category }: { category: CategoryProps }) => {
           <span className={cn("p-1 rounded-full", category.color.split(" ")[0])}>
             {category.icon}
           </span>
-          <h3 className="font-medium text-floral-burgundy">{category.title}</h3>
+          <h3 
+            className="font-medium text-floral-burgundy cursor-pointer hover:text-floral-burgundy/80 transition-colors"
+            onClick={handleGalleryNavigation}
+          >
+            {category.title}
+          </h3>
         </div>
       </div>
       <CardContent className="p-6">
