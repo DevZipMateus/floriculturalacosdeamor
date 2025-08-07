@@ -107,7 +107,7 @@ const AboutCard = ({ icon, title, description }: AboutCardProps) => (
   <Card className="animate-on-scroll service-card border border-border/50 shadow-card">
     <CardContent className="p-6">
       <div className="mb-4">{icon}</div>
-      <h4 className="text-xl font-bold mb-2">{title}</h4>
+      <h4 className="text-xl font-bold mb-2">Por que nos escolher?</h4>
       <p className="text-muted-foreground text-sm">{description}</p>
     </CardContent>
   </Card>
