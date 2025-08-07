@@ -48,7 +48,7 @@ const AboutSection = () => {
                 Produtos florais feitos com carinho, rapidez e excelência para presentear, homenagear ou marcar um momento especial em Goiânia
               </h3>
               <p className="text-muted-foreground mb-6">
-                Nosso trabalho é guiado pela paixão em proporcionar o que há de mais especial na vida: emoções genuínas, conexões verdadeiras e a beleza única de cada detalhe. Acreditamos que os nossos produtos vão além de uma imagem; ela é um legado que atravessa o tempo, preservando lembranças e sentimentos.
+                Nossa essência é transformar sentimentos em flores.
               </p>
               <p className="text-muted-foreground mb-6">
                 Com um olhar criativo, garantimos produtos personalizados que traduzem sua personalidade e estilo. Seja para um pedido de desculpas, datas especiais, eventos ou até mesmo um funeral, estamos aqui para criar imagens que falem por si e emocionem por gerações.
