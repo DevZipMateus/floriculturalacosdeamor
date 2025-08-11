@@ -10,8 +10,7 @@ const HeroSection = () => {
 
   // Background images for the slideshow
   const backgroundImages = [
-    "/lovable-uploads/310590bb-a18c-4f7a-bd87-1f403c049287.png", 
-    "/lovable-uploads/b37b72dc-8649-4788-96d4-6024637b82f7.png"
+    "/lovable-uploads/0dd19fca-bf41-4be4-a013-62ec6a179982.png"
   ];
 
   useEffect(() => {
