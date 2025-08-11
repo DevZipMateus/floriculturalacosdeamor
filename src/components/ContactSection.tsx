@@ -105,8 +105,9 @@ const ContactSection = () => {
                       />
                       <SocialLink 
                         icon={<Instagram size={20} />} 
-                        href="https://www.instagram.com/floriculturalacosdeamorr" 
-                        label="Instagram" 
+                        href="https://www.instagram.com/floriculturalacosdeamor.flores?utm_source=qr&igsh=dzRleHR0djIwMGpj" 
+                        label="Instagram"
+                        highlight={true}
                       />
                       <SocialLink 
                         icon={<Linkedin size={20} />} 
@@ -192,12 +193,17 @@ interface SocialLinkProps {
   icon: React.ReactNode;
   href: string;
   label: string;
+  highlight?: boolean;
 }
 
-const SocialLink = ({ icon, href, label }: SocialLinkProps) => (
+const SocialLink = ({ icon, href, label, highlight }: SocialLinkProps) => (
   <a
     href={href}
-    className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-floral-gold/10 text-floral-gold hover:bg-floral-burgundy hover:text-white transition-colors"
+    className={`inline-flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 ${
+      highlight 
+        ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:from-purple-600 hover:to-pink-600 animate-pulse shadow-lg transform hover:scale-110" 
+        : "bg-floral-gold/10 text-floral-gold hover:bg-floral-burgundy hover:text-white"
+    }`}
     aria-label={label}
     target="_blank"
     rel="noopener noreferrer"

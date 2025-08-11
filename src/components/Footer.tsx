@@ -29,9 +29,10 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4 mt-6">
               <FooterSocialLink 
-                href="https://www.instagram.com/floriculturalacosdeamorr" 
+                href="https://www.instagram.com/floriculturalacosdeamor.flores?utm_source=qr&igsh=dzRleHR0djIwMGpj" 
                 aria-label="Instagram"
                 icon={<Instagram className="h-4 w-4" />}
+                highlight={true}
               />
               <FooterSocialLink 
                 href="https://www.facebook.com/share/1FdsXn6kBx/" 
@@ -159,12 +160,17 @@ interface FooterSocialLinkProps {
   href: string;
   'aria-label': string;
   icon?: React.ReactNode;
+  highlight?: boolean;
 }
 
-const FooterSocialLink = (props: FooterSocialLinkProps) => (
+const FooterSocialLink = ({ highlight, ...props }: FooterSocialLinkProps) => (
   <a
     {...props}
-    className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/20 hover:bg-floral-gold/80 transition-colors duration-200"
+    className={`inline-flex items-center justify-center w-8 h-8 rounded-full transition-all duration-300 ${
+      highlight 
+        ? "bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 animate-pulse shadow-lg" 
+        : "bg-white/20 hover:bg-floral-gold/80"
+    }`}
   >
     {props.icon}
   </a>
