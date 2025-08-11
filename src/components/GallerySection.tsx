@@ -195,15 +195,12 @@ const categories = {
   
   // Cestas e presentes - cestas, arranjos em vasos, presentes
   "cestas": [
-    "1378690923277082.jpeg",
-    "1379703456612614.jpeg",
-    "1896782404474502.jpeg",
-    "1088807276410764.jpeg",
-    "1715461362418119.jpeg",
-     "625072200556953.jpeg",
-    
-    
-    
+    "cestas/cestas-1.jpg",
+    "cestas/cestas-13.jpg",
+    "cestas/cestas-14.jpg",
+    "cestas/cestas-25.jpg",
+    "cestas/cestas-29.jpg",
+    "cestas/cestas-47.jpg"
   ],
 };
 
