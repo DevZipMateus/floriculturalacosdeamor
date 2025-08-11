@@ -16,6 +16,7 @@ import { ShoppingBag, Image } from 'lucide-react';
 import { openWhatsApp } from '@/utils/whatsapp';
 import { Button } from '@/components/ui/button';
 import LightboxDialog from './LightboxDialog';
+import Autoplay from 'embla-carousel-autoplay';
 
 // Categorias de imagens reorganizadas após análise visual
 const categories = {
@@ -206,12 +207,9 @@ const categories = {
 
 // Imagens em destaque para o carrossel superior - uma seleção das melhores de cada categoria
 const featuredImages = [
-  "1436283747534662.jpeg", // coroa
-  "1211310727385237.jpeg", // buquê
-  "4133203780233785.jpeg", // cesta
-  "722629856878437.jpeg", // coroa
-  "1378690923277082.jpeg", // buquê
-  "1570604174326565.jpeg", // cesta
+  categories.coroas[0],
+  categories.buques[0],
+  categories.cestas[0],
 ];
 
 interface GalleryItemProps {
@@ -321,11 +319,12 @@ const GallerySection = () => {
               align: "start",
               loop: true,
             }}
+            plugins={[Autoplay({ delay: 3000, stopOnInteraction: false })]}
             className="w-full"
           >
             <CarouselContent>
               {featuredImages.map((image, index) => (
-                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                <CarouselItem key={index}>
                   <Card className="border-0 shadow-lg overflow-hidden">
                     <CardContent className="p-0 cursor-pointer" onClick={() => {
                       let category = "outros";
