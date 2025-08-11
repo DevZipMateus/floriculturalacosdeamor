@@ -8,8 +8,11 @@ const HeroSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Wedding couple images for the slideshow
-  const weddingImages = ["/galeria/1211310727385237.jpeg", "/galeria/1322967455452254.jpeg", "/galeria/1600599350896481.jpeg", "/galeria/4133203780233785.jpeg"];
+  // Background images for the slideshow
+  const backgroundImages = [
+    "/lovable-uploads/310590bb-a18c-4f7a-bd87-1f403c049287.png", 
+    "/lovable-uploads/b37b72dc-8649-4788-96d4-6024637b82f7.png"
+  ];
 
   useEffect(() => {
     if (sectionRef.current) {
@@ -18,10 +21,10 @@ const HeroSection = () => {
 
     // Auto-rotate the slideshow
     const interval = setInterval(() => {
-      setCurrentSlide(prev => (prev + 1) % weddingImages.length);
+      setCurrentSlide(prev => (prev + 1) % backgroundImages.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, [weddingImages.length]);
+  }, [backgroundImages.length]);
 
   const scrollToGallerySection = () => {
     const gallerySection = document.getElementById('gallery');
@@ -35,7 +38,7 @@ const HeroSection = () => {
   return <section id="hero" ref={sectionRef} className="relative min-h-screen flex items-center justify-center pt-16">
       {/* Background slideshow */}
       <div className="absolute inset-0 z-0">
-        {weddingImages.map((img, index) => <div key={index} className={`absolute inset-0 transition-opacity duration-1000 ${currentSlide === index ? 'opacity-100' : 'opacity-0'}`}>
+        {backgroundImages.map((img, index) => <div key={index} className={`absolute inset-0 transition-opacity duration-1000 ${currentSlide === index ? 'opacity-100' : 'opacity-0'}`}>
             <img src={img} alt="Floral arrangements" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40"></div>
           </div>)}
