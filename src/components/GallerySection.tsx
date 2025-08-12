@@ -205,12 +205,10 @@ const categories = {
   ],
 };
 
-// Imagens em destaque para o carrossel superior - uma seleção das melhores de cada categoria
-const featuredImages = [
-  categories.coroas[0],
-  categories.buques[0],
-  categories.cestas[0],
-];
+// Imagens em destaque para o carrossel superior - intercalando 3 de cada categoria
+const featuredImages = Array.from({ length: 3 })
+  .flatMap((_, i) => [categories.coroas[i], categories.buques[i], categories.cestas[i]])
+  .filter(Boolean);
 
 interface GalleryItemProps {
   image: string;
