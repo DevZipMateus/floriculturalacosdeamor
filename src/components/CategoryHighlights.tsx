@@ -18,9 +18,7 @@ const categories: CategoryProps[] = [
     title: "Buquê de Flores",
     description: "Buquês de flores naturais com entrega rápida em Goiânia. Ideais para aniversários, declarações de amor ou surpresas inesquecíveis",
     images: [
-      "/galeria/1322967455452254.jpeg",
-      "/galeria/1744257336484288.jpeg",
-      "/galeria/1600599350896481.jpeg"
+      "/lovable-uploads/64764096-903d-4755-a1cc-4207a838461a.png"
     ],
     icon: <Flower size={24} />,
     color: "bg-pink-100 text-pink-700 border-pink-300"
