@@ -29,9 +29,7 @@ const categories: CategoryProps[] = [
     title: "Cestas",
     description: "Cestas com chocolates, flores e mimos personalizados sob encomenda. Entregamos em Goiânia com carinho em até 3 horas. Perfeitos para presentes",
     images: [
-      "/galeria/1378690923277082.jpeg",
-      "/galeria/1379703456612614.jpeg",
-      "/galeria/1896782404474502.jpeg"
+      "/lovable-uploads/3b3cc8f2-9eef-4f88-87f6-c3850dc17a08.png"
     ],
     icon: <ShoppingBasket size={24} />,
     color: "bg-yellow-100 text-yellow-700 border-yellow-300"
