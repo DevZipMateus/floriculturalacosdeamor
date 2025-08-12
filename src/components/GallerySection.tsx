@@ -340,32 +340,6 @@ const GallerySection = () => {
                         className="w-full h-64 object-cover"
                       />
                     </CardContent>
-                    <CardFooter className="p-4 bg-floral-burgundy text-white">
-                      <Button 
-                        variant="outline" 
-                        className="w-full bg-transparent border-white text-white hover:bg-white hover:text-floral-burgundy"
-                        onClick={() => {
-                          let category = "outros";
-                          if (categories.coroas.includes(image)) category = "coroas";
-                          else if (categories.buques.includes(image)) category = "buques";
-                          else if (categories.cestas.includes(image)) category = "cestas";
-                          
-                          const categoryName = {
-                            "coroas": "Coroa de Flores",
-                            "buques": "Buquê de Flores",
-                            "cestas": "Cesta/Presente",
-                            "outros": "Produto"
-                          }[category];
-                          
-                          const imageUrl = `/galeria/${image}`;
-                          const message = `Olá! Gostaria de saber mais sobre este produto em destaque: ${categoryName}`;
-                          
-                          openWhatsApp(message, imageUrl);
-                        }}
-                      >
-                        <ShoppingBag className="mr-2 h-4 w-4" /> Ver Detalhes
-                      </Button>
-                    </CardFooter>
                   </Card>
                 </CarouselItem>
               ))}
