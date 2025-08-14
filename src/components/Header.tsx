@@ -50,7 +50,7 @@ const Header = () => {
                 alt="Laços de Amor Logo"
                 className="h-12 w-auto mr-2"
               />
-              <h1 className="text-2xl font-display font-bold text-floral-burgundy hidden md:block">
+              <h1 className="text-lg md:text-2xl font-display font-bold text-floral-burgundy">
                 Floricultura Laços de Amor
               </h1>
             </div>
