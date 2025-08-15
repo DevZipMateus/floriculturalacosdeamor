@@ -24,13 +24,12 @@ const LightboxDialog: React.FC<LightboxDialogProps> = ({
   image, 
   category 
 }) => {
-  const handleWhatsAppClick = () => {
+  const getWhatsAppUrl = () => {
     const categoryName = categoryNames[category] || "Produto";
-    const imageUrl = `/galeria/${image}`;
-    const message = `Olá! Gostaria de comprar esta ${categoryName}:`;
-    
-    openWhatsApp(message, imageUrl);
-    onOpenChange(false);
+    const imageUrl = `${window.location.origin}/galeria/${image}`;
+    const message = `Olá! Gostaria de comprar esta ${categoryName}: ${imageUrl}`;
+    const encodedMessage = encodeURIComponent(message);
+    return `https://api.whatsapp.com/send/?phone=558001813000&text=${encodedMessage}&type=phone_number&app_absent=0`;
   };
 
   return (
@@ -63,13 +62,16 @@ const LightboxDialog: React.FC<LightboxDialogProps> = ({
                   Entre em contato para mais informações e preços
                 </p>
               </div>
-              <Button 
-                onClick={handleWhatsAppClick}
-                className="bg-[#25D366] hover:bg-[#20BD5C] flex gap-2 min-w-[200px]"
+              <a 
+                href={getWhatsAppUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => onOpenChange(false)}
+                className="bg-[#25D366] hover:bg-[#20BD5C] flex gap-2 min-w-[200px] px-4 py-2 rounded-md text-white font-medium inline-flex items-center justify-center transition-colors"
               >
                 <ShoppingBag size={18} />
                 <span>Comprar pelo WhatsApp</span>
-              </Button>
+              </a>
             </div>
           </DialogFooter>
         </div>

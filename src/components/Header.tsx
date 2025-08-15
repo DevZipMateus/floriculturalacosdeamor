@@ -59,13 +59,15 @@ const Header = () => {
           {/* Desktop Menu */}
           <nav className="hidden md:flex items-center space-x-1">
             <NavLinks />
-            <Button 
-              className="quote-btn ml-4 text-white bg-floral-burgundy hover:bg-floral-burgundy/90 rounded-md transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-2"
-              onClick={() => openWhatsApp()}
+            <a 
+              href="https://api.whatsapp.com/send/?phone=558001813000&text=Olá! Gostaria de saber mais sobre os serviços da Floricultura Laços de Amor.&type=phone_number&app_absent=0"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="quote-btn ml-4 text-white bg-floral-burgundy hover:bg-floral-burgundy/90 rounded-md transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-2 px-4 py-2 font-medium text-sm"
             >
               <FileText size={18} />
               Falar com Vendas
-            </Button>
+            </a>
           </nav>
 
           {/* Mobile Menu using Sheet from shadcn/ui */}
@@ -81,13 +83,15 @@ const Header = () => {
                 <nav className="flex flex-col items-center space-y-4 text-lg">
                   <NavLinks mobile />
                   <SheetClose asChild>
-                    <Button 
-                      className="quote-btn mt-4 w-full text-white bg-floral-burgundy hover:bg-floral-burgundy/90 rounded-md transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2 py-3 text-base"
-                      onClick={() => openWhatsApp()}
+                    <a 
+                      href="https://api.whatsapp.com/send/?phone=558001813000&text=Olá! Gostaria de saber mais sobre os serviços da Floricultura Laços de Amor.&type=phone_number&app_absent=0"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="quote-btn mt-4 w-full text-white bg-floral-burgundy hover:bg-floral-burgundy/90 rounded-md transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2 py-3 text-base font-medium"
                     >
                       <FileText size={18} />
                       Falar com Vendas
-                    </Button>
+                    </a>
                   </SheetClose>
                 </nav>
               </SheetContent>

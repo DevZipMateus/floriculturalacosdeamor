@@ -101,14 +101,15 @@ const ServicesSection = () => {
         </div>
 
         <div className="mt-16 text-center animate-on-scroll">
-          <Button 
-            size="lg" 
-            className="quote-btn bg-floral-burgundy hover:bg-floral-burgundy/90 text-white rounded-md transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-2"
-            onClick={() => openWhatsApp('Olá! Gostaria de solicitar um orçamento para os serviços da Floricultura Laços de Amor.')}
+          <a 
+            href="https://api.whatsapp.com/send/?phone=558001813000&text=Olá! Gostaria de solicitar um orçamento para os serviços da Floricultura Laços de Amor.&type=phone_number&app_absent=0"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="quote-btn bg-floral-burgundy hover:bg-floral-burgundy/90 text-white rounded-md transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-2 px-8 py-3 text-lg font-medium inline-flex justify-center"
           >
             <FileText size={20} />
             <span>Solicitar Orçamento</span>
-          </Button>
+          </a>
         </div>
       </div>
     </section>

@@ -58,10 +58,15 @@ const HeroSection = () => {
             <Button size="lg" className="rounded-md shadow-md transition-all duration-300 bg-floral-burgundy hover:bg-floral-burgundy/90 text-white" onClick={() => scrollToGallerySection()}>
               Ver coroas e Buquês disponíveis
             </Button>
-            <Button size="lg" variant="secondary" className="quote-btn hover:bg-green-500 hover:text-white group rounded-md shadow-md transition-all duration-300 flex gap-2 bg-floral-gold text-floral-burgundy" onClick={() => openWhatsApp('Olá! Gostaria de solicitar um orçamento para os serviços da Floricultura Laços de Amor.')}>
+            <a 
+              href="https://api.whatsapp.com/send/?phone=558001813000&text=Olá! Gostaria de solicitar um orçamento para os serviços da Floricultura Laços de Amor.&type=phone_number&app_absent=0"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="quote-btn hover:bg-green-500 hover:text-white group rounded-md shadow-md transition-all duration-300 flex gap-2 bg-floral-gold text-floral-burgundy px-8 py-3 text-lg font-medium inline-flex items-center justify-center"
+            >
               <img src="/galeria/e5c365ac-2ba0-4157-bb97-d6821651fde1.png" alt="WhatsApp" className="w-5 h-5 group-hover:animate-pulse" />
               <span>Solicitar Orçamento</span>
-            </Button>
+            </a>
           </div>
         </div>
       </div>
