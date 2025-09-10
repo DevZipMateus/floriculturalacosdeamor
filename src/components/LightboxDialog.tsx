@@ -26,10 +26,10 @@ const LightboxDialog: React.FC<LightboxDialogProps> = ({
 }) => {
   const getWhatsAppUrl = () => {
     const categoryName = categoryNames[category] || "Produto";
-    const imageUrl = `${window.location.origin}/galeria/${image}`;
+    const imageUrl = encodeURI(new URL(`/galeria/${image}`, window.location.origin).toString());
     const message = `Olá! Gostaria de comprar esta ${categoryName}: ${imageUrl}`;
     const encodedMessage = encodeURIComponent(message);
-    return `https://api.whatsapp.com/send/?phone=558001813000&text=${encodedMessage}&type=phone_number&app_absent=0`;
+    return `https://api.whatsapp.com/send?phone=558001813000&text=${encodedMessage}&type=phone_number&app_absent=0`;
   };
 
   return (
