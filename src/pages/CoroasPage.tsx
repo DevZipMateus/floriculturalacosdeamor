@@ -1,3 +1,4 @@
+import { Info } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
@@ -28,6 +29,12 @@ const CoroasPage = () => {
               </svg>
               Atendimento Imediato
             </a>
+            <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 max-w-2xl mx-auto mt-6 flex items-start gap-3 text-left">
+              <Info className="w-5 h-5 text-amber-600 mt-0.5 flex-shrink-0" />
+              <p className="text-sm text-amber-900">
+                As flores variam conforme a estação do ano e a disponibilidade dos produtores. Caso alguma flor específica não esteja disponível, realizamos substituições por flores equivalentes, sempre respeitando o mesmo padrão de qualidade, frescor e beleza, garantindo um arranjo final bonito, harmonioso e fiel ao estilo escolhido.
+              </p>
+            </div>
           </div>
           <ProductGallery images={coroas} categoryName="Coroa de Flores" />
         </div>
