@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import CoroasPage from "./pages/CoroasPage";
 import BuquesPage from "./pages/BuquesPage";
 import CestasPage from "./pages/CestasPage";
+import SobreNosPage from "./pages/SobreNosPage";
 import NotFound from "./pages/NotFound";
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
             <Route path="/coroas" element={<CoroasPage />} />
             <Route path="/buques" element={<BuquesPage />} />
             <Route path="/cestas" element={<CestasPage />} />
+            <Route path="/sobre" element={<SobreNosPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

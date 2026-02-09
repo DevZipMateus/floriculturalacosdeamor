@@ -108,6 +108,7 @@ const NavLinks = ({ mobile }: NavLinksProps) => {
     { name: 'Coroas de Flores', to: '/coroas' },
     { name: 'Buquês Premium', to: '/buques' },
     { name: 'Cestas Premium', to: '/cestas' },
+    { name: 'Sobre Nós', to: '/sobre' },
   ];
 
   return (
