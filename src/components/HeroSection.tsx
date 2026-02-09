@@ -18,7 +18,7 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 md:px-8 relative z-10 text-center">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
-            Coroas de flores para velório com entrega imediata em <span className="text-floral-gold">Goiânia e região</span>
+            Coroas de flores para velório com entrega imediata em <span className="text-floral-gold whitespace-nowrap">Goiânia e região</span>
           </h1>
           
           <p className="text-lg md:text-xl text-white mb-8 max-w-2xl mx-auto drop-shadow-md">
