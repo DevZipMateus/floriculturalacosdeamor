@@ -1,5 +1,5 @@
 
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { ChevronLeft, ChevronRight, Quote, Star } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -80,7 +80,6 @@ const testimonials = [
 const TestimonialsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
 
   const handlePrev = () => {
     if (isTransitioning) return;
@@ -97,12 +96,9 @@ const TestimonialsSection = () => {
   };
 
   const getVisibleTestimonials = () => {
-    // Para telas menores, mostrar apenas um depoimento
     if (typeof window !== 'undefined' && window.innerWidth < 768) {
       return [testimonials[currentIndex]];
     }
-    
-    // Para telas maiores, mostrar múltiplos depoimentos
     const items = [];
     for (let i = 0; i < 2; i++) {
       const index = (currentIndex + i) % testimonials.length;
@@ -112,34 +108,31 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section ref={sectionRef} id="testimonials" className="section-padding py-16 bg-gray-50 overflow-hidden">
+    <section id="testimonials" className="py-16 bg-muted/30 overflow-hidden">
       <div className="container mx-auto">
         <div className="text-center mb-12">
-          <span className="inline-block px-4 py-1 bg-floral-burgundy/10 text-floral-burgundy rounded-full text-sm font-medium mb-4 animate-on-scroll">
+          <span className="inline-block px-4 py-1 bg-floral-burgundy/10 text-floral-burgundy rounded-full text-sm font-medium mb-4">
             Opiniões de Clientes
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 animate-on-scroll text-floral-burgundy">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-floral-burgundy">
             O Que Nossos Clientes Dizem
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto animate-on-scroll">
+          <p className="text-muted-foreground max-w-2xl mx-auto">
             Veja avaliações reais de clientes sobre nossos produtos, serviços e atendimento.
-            Seu momento de homenagem merece todo nosso cuidado e atenção.
           </p>
         </div>
 
         <div className="relative max-w-5xl mx-auto px-4">
-          <div className="animate-on-scroll">
-            <div className={`grid grid-cols-1 md:grid-cols-2 gap-6 testimonial-slider transform`}>
-              {getVisibleTestimonials().map((testimonial, index) => (
-                <TestimonialCard key={index} testimonial={testimonial} />
-              ))}
-            </div>
+          <div className={`grid grid-cols-1 md:grid-cols-2 gap-6 testimonial-slider`}>
+            {getVisibleTestimonials().map((testimonial, index) => (
+              <TestimonialCard key={index} testimonial={testimonial} />
+            ))}
           </div>
 
           <div className="flex justify-center mt-10 space-x-4">
             <button
               onClick={handlePrev}
-              className="p-3 rounded-full bg-white shadow-md border border-gray-200 text-floral-burgundy hover:bg-gray-50 transition-colors"
+              className="p-3 rounded-full bg-white shadow-md border border-border text-floral-burgundy hover:bg-muted transition-colors"
               aria-label="Depoimento anterior"
             >
               <ChevronLeft size={20} />
@@ -156,7 +149,7 @@ const TestimonialsSection = () => {
                     setTimeout(() => setIsTransitioning(false), 600);
                   }}
                   className={`w-3 h-3 rounded-full transition-colors ${
-                    currentIndex === index ? 'bg-floral-burgundy' : 'bg-gray-300'
+                    currentIndex === index ? 'bg-floral-burgundy' : 'bg-border'
                   }`}
                   aria-label={`Ir para depoimento ${index + 1}`}
                 />
@@ -165,7 +158,7 @@ const TestimonialsSection = () => {
             
             <button
               onClick={handleNext}
-              className="p-3 rounded-full bg-white shadow-md border border-gray-200 text-floral-burgundy hover:bg-gray-50 transition-colors"
+              className="p-3 rounded-full bg-white shadow-md border border-border text-floral-burgundy hover:bg-muted transition-colors"
               aria-label="Próximo depoimento"
             >
               <ChevronRight size={20} />
@@ -188,22 +181,18 @@ interface TestimonialCardProps {
 }
 
 const TestimonialCard = ({ testimonial }: TestimonialCardProps) => {
-  // Gerar estrelas com base na classificação
   const renderStars = (rating: number) => {
     const stars = [];
-    
-    // Adicionar estrelas completas
     for (let i = 0; i < rating; i++) {
       stars.push(
         <Star key={`full-${i}`} className="fill-floral-gold text-floral-gold" size={16} />
       );
     }
-    
     return stars;
   };
 
   return (
-    <Card className="border border-floral-gold/20 shadow-md service-card h-full hover:shadow-lg transition-shadow">
+    <Card className="border border-floral-gold/20 shadow-md h-full hover:shadow-lg transition-shadow">
       <CardContent className="p-8 h-full flex flex-col">
         <div className="mb-6 text-floral-gold">
           <Quote size={32} />
@@ -211,7 +200,7 @@ const TestimonialCard = ({ testimonial }: TestimonialCardProps) => {
         
         <div className="flex items-center mb-4">
           {renderStars(testimonial.rating)}
-          <span className="ml-2 text-sm text-gray-500">{testimonial.date}</span>
+          <span className="ml-2 text-sm text-muted-foreground">{testimonial.date}</span>
         </div>
         
         <p className="text-foreground mb-6 flex-grow">{testimonial.text}</p>
