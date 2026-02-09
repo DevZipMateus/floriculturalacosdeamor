@@ -1,7 +1,24 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Linkedin } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
 
 const ContactSection = () => {
+  const [showMap, setShowMap] = useState(false);
+  const mapRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShowMap(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '200px' }
+    );
+    if (mapRef.current) observer.observe(mapRef.current);
+    return () => observer.disconnect();
+  }, []);
   const contactInfo = [
     {
       icon: <Phone className="h-5 w-5 text-floral-gold" />,
@@ -108,18 +125,24 @@ const ContactSection = () => {
           </Card>
         </div>
 
-        <div className="mt-16">
+        <div className="mt-16" ref={mapRef}>
           <Card className="border border-border/50 shadow-md overflow-hidden">
             <div className="h-[400px] w-full">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3826.6961218218976!2d-49.2621!3d-16.6778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef19fa1a3d5fb%3A0xe1b826d96047944!2sRua%20Manaus%20-%20Vila%20Nova%2C%20Goi%C3%A2nia%20-%20GO!5e0!3m2!1spt-BR!2sbr!4v1627909542948!5m2!1spt-BR!2sbr"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                title="Mapa de localização"
-              ></iframe>
+              {showMap ? (
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3826.6961218218976!2d-49.2621!3d-16.6778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef19fa1a3d5fb%3A0xe1b826d96047944!2sRua%20Manaus%20-%20Vila%20Nova%2C%20Goi%C3%A2nia%20-%20GO!5e0!3m2!1spt-BR!2sbr!4v1627909542948!5m2!1spt-BR!2sbr"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  title="Mapa de localização"
+                ></iframe>
+              ) : (
+                <div className="w-full h-full bg-muted flex items-center justify-center text-muted-foreground">
+                  Carregando mapa...
+                </div>
+              )}
             </div>
           </Card>
         </div>

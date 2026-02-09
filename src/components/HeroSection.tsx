@@ -5,12 +5,15 @@ const HeroSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section id="hero" ref={sectionRef} className="relative min-h-screen flex items-center justify-center pt-16">
+    <section id="hero" ref={sectionRef} className="relative min-h-[100svh] flex items-center justify-center pt-16">
       <div className="absolute inset-0 z-0">
         <img 
           src="/lovable-uploads/0dd19fca-bf41-4be4-a013-62ec6a179982.png" 
           alt="Coroas de flores para velório" 
-          className="w-full h-full object-cover" 
+          className="w-full h-full object-cover"
+          width="1920"
+          height="1080"
+          fetchPriority="high"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40"></div>
       </div>
