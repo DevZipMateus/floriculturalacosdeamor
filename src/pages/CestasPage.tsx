@@ -27,11 +27,16 @@ const CestasPage = () => {
               </svg>
               Encomendar pelo WhatsApp
             </a>
-            <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 max-w-2xl mx-auto mt-6 flex items-start gap-3 text-left">
-              <Info className="w-5 h-5 text-amber-600 mt-0.5 flex-shrink-0" />
-              <p className="text-sm text-amber-900">
-                As Cestas Premium são compostas por chocolates finos e ursos, podendo haver variação de marcas, modelos e apresentações conforme disponibilidade dos fornecedores. Eventuais substituições serão realizadas exclusivamente por itens equivalentes de padrão premium, preservando a qualidade, estética e a proposta da cesta escolhida.
-              </p>
+            <div className="bg-gradient-to-r from-amber-50 to-orange-50 border-l-4 border-amber-500 rounded-r-xl shadow-md p-5 max-w-2xl mx-auto mt-6 flex items-start gap-4 text-left">
+              <div className="bg-amber-500 rounded-full p-2 flex-shrink-0">
+                <Info className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-amber-800 mb-1">Informação importante sobre os produtos</p>
+                <p className="text-sm text-amber-900/80 leading-relaxed">
+                  As Cestas Premium são compostas por chocolates finos e ursos, podendo haver variação de marcas, modelos e apresentações conforme disponibilidade. Substituições serão feitas por itens equivalentes de padrão premium, preservando a qualidade e a proposta da cesta escolhida.
+                </p>
+              </div>
             </div>
           </div>
           <ProductGallery images={cestas} categoryName="Cesta Premium" />
