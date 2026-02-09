@@ -34,11 +34,16 @@ const BuquesPage = () => {
               </svg>
               Encomendar pelo WhatsApp
             </a>
-            <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 max-w-2xl mx-auto mt-6 flex items-start gap-3 text-left">
-              <Info className="w-5 h-5 text-amber-600 mt-0.5 flex-shrink-0" />
-              <p className="text-sm text-amber-900">
-                As flores variam conforme a estação do ano e a disponibilidade dos produtores. Caso alguma flor específica não esteja disponível, realizamos substituições por flores equivalentes, sempre respeitando o mesmo padrão de qualidade, frescor e beleza, garantindo um arranjo final bonito, harmonioso e fiel ao estilo escolhido.
-              </p>
+            <div className="bg-gradient-to-r from-amber-50 to-orange-50 border-l-4 border-amber-500 rounded-r-xl shadow-md p-5 max-w-2xl mx-auto mt-6 flex items-start gap-4 text-left">
+              <div className="bg-amber-500 rounded-full p-2 flex-shrink-0">
+                <Info className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-amber-800 mb-1">Informação importante sobre as flores</p>
+                <p className="text-sm text-amber-900/80 leading-relaxed">
+                  As flores variam conforme a estação do ano e a disponibilidade dos produtores. Caso alguma flor específica não esteja disponível, realizamos substituições por flores equivalentes, sempre respeitando o mesmo padrão de qualidade, frescor e beleza.
+                </p>
+              </div>
             </div>
           </div>
           <ProductGallery images={buques} categoryName="Buquê de Flores" />
