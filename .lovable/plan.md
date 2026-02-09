@@ -1,34 +1,48 @@
 
+# Otimizacao de Performance - Lighthouse
 
-# Aviso de Disponibilidade de Flores
+## Problema Principal
+O **Total Blocking Time (TBT) de 2.120ms** e o pior indicador. Isso significa que o navegador fica bloqueado por mais de 2 segundos processando JavaScript antes da pagina ficar interativa. O CLS de 0,134 tambem esta acima do ideal (< 0,1).
 
-## O que sera feito
-Adicionar um bloco de texto informativo em destaque nas 3 paginas de produto (Coroas, Buques, Cestas) e na secao de galeria da Home, informando sobre a substituicao de flores conforme disponibilidade sazonal.
+## Causas Identificadas
 
-## Texto a inserir
-"As flores variam conforme a estacao do ano e a disponibilidade dos produtores. Caso alguma flor especifica nao esteja disponivel, realizamos substituicoes por flores equivalentes, sempre respeitando o mesmo padrao de qualidade, frescor e beleza, garantindo um arranjo final bonito, harmonioso e fiel ao estilo escolhido."
+1. **Todas as paginas carregam de uma vez** - CoroasPage, BuquesPage, CestasPage e SobreNosPage sao importadas sincronamente no App.tsx, mesmo que o usuario esteja na Home
+2. **Google Fonts bloqueando renderizacao** - A fonte e carregada tanto no index.html quanto no index.css (duplicada), bloqueando o FCP
+3. **Iframe do Google Maps carrega na Home** - O mapa do ContactSection carrega mesmo sem o usuario descer ate la
+4. **Script externo do MonteSite** carrega sincronamente no index.html
+5. **CLS causado pela imagem hero** - A imagem do hero nao tem dimensoes definidas, causando layout shift
 
-## Onde sera inserido
+## Solucao
 
-### 1. CoroasPage.tsx
-- Abaixo do botao "Atendimento Imediato" e acima da galeria de fotos
-- Estilo: caixa com fundo suave, borda e icone de informacao
+### 1. Lazy Loading das rotas (maior impacto no TBT)
+Usar `React.lazy()` e `Suspense` no App.tsx para que as paginas secundarias (Coroas, Buques, Cestas, Sobre) so carreguem quando acessadas.
 
-### 2. BuquesPage.tsx
-- Abaixo do botao "Encomendar pelo WhatsApp" e acima da galeria
-- Mesmo estilo visual
+### 2. Otimizar carregamento de fontes
+- Remover o `@import` duplicado do Google Fonts no index.css (ja esta no index.html)
+- Adicionar `font-display: swap` via parametro na URL da fonte
+- Adicionar `<link rel="preload">` para a fonte principal
 
-### 3. CestasPage.tsx
-- Abaixo do botao "Encomendar pelo WhatsApp" e acima da galeria
-- Mesmo estilo visual
+### 3. Lazy load do iframe do Google Maps
+Carregar o iframe do mapa apenas quando o usuario rolar ate a secao de contato, usando Intersection Observer.
 
-### 4. GallerySection.tsx (Home)
-- Abaixo do subtitulo e acima da galeria preview de coroas
+### 4. Tornar script MonteSite assincrono
+Adicionar `async` ou `defer` ao script externo do Supabase no index.html.
 
-## Estilo visual
-Caixa com fundo `bg-amber-50`, borda `border-amber-200`, texto `text-amber-900`, com icone de informacao (Lucide `Info`), centralizada com `max-w-2xl`. Estilo semelhante ao aviso de "sob encomenda" ja existente nas paginas de buques e cestas.
+### 5. Corrigir CLS
+- Adicionar `aspect-ratio` ou dimensoes fixas na imagem hero
+- Definir altura minima no container do hero
 
-## Detalhes tecnicos
-- 4 arquivos editados: `CoroasPage.tsx`, `BuquesPage.tsx`, `CestasPage.tsx`, `GallerySection.tsx`
-- Importar icone `Info` do `lucide-react` em cada arquivo
-- Nenhum componente novo necessario - o bloco e simples o suficiente para ser inline
+## Arquivos a editar
+
+| Arquivo | Alteracao |
+|---------|-----------|
+| `src/App.tsx` | Lazy imports com React.lazy + Suspense |
+| `src/index.css` | Remover @import duplicado do Google Fonts |
+| `index.html` | Adicionar font-display=swap na URL, preload da fonte, defer no script MonteSite |
+| `src/components/ContactSection.tsx` | Lazy load do iframe com Intersection Observer |
+| `src/components/HeroSection.tsx` | Adicionar aspect-ratio/dimensoes para evitar CLS |
+
+## Impacto esperado
+- **TBT**: Reducao significativa ao nao carregar JS das paginas secundarias na Home
+- **CLS**: Abaixo de 0,1 com dimensoes fixas no hero
+- **Speed Index**: Melhora com fontes otimizadas e menos JS bloqueante
