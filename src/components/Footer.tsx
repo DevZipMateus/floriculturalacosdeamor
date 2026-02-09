@@ -1,12 +1,10 @@
 import { Button } from '@/components/ui/button';
 import { ChevronUp, Facebook, Instagram, Phone, Mail, MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -25,20 +23,23 @@ const Footer = () => {
               </h3>
             </div>
             <p className="text-white/80 max-w-xs">
-              Floricultura online com atendimento ágil, personalizado e humano, entregando flores com significado em todo o Brasil.
+              Coroas de flores para velório com entrega imediata em Goiânia e região. Atendimento 24 horas.
             </p>
             <div className="flex space-x-4 mt-6">
-              <FooterSocialLink 
-                href="https://www.instagram.com/floriculturalacosdeamor.flores?utm_source=qr&igsh=dzRleHR0djIwMGpj" 
+              <a
+                href="https://www.instagram.com/floriculturalacosdeamor.flores?utm_source=qr&igsh=dzRleHR0djIwMGpj"
                 aria-label="Instagram"
-                icon={<Instagram className="h-4 w-4" />}
-                highlight={true}
-              />
-              <FooterSocialLink 
-                href="https://www.facebook.com/share/1FdsXn6kBx/" 
+                className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 shadow-lg transition-all"
+              >
+                <Instagram className="h-4 w-4" />
+              </a>
+              <a
+                href="https://www.facebook.com/share/1FdsXn6kBx/"
                 aria-label="Facebook"
-                icon={<Facebook className="h-4 w-4" />}
-              />
+                className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/20 hover:bg-floral-gold/80 transition-all"
+              >
+                <Facebook className="h-4 w-4" />
+              </a>
             </div>
             
             <div className="mt-6">
@@ -60,29 +61,19 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4 text-floral-gold">Institucional</h4>
             <ul className="space-y-2">
-              <FooterNavItem href="#hero">Home</FooterNavItem>
-              <FooterNavItem href="#about">Sobre Nós</FooterNavItem>
-              <FooterNavItem href="#services">Nossas Soluções</FooterNavItem>
-              <FooterNavItem href="#gallery">Nossos Projetos</FooterNavItem>
-              <FooterNavItem href="#contact">Contato</FooterNavItem>
+              <li><Link to="/" className="text-white/70 hover:text-floral-gold transition-colors">Início</Link></li>
+              <li><Link to="/coroas" className="text-white/70 hover:text-floral-gold transition-colors">Coroas de Flores</Link></li>
+              <li><Link to="/buques" className="text-white/70 hover:text-floral-gold transition-colors">Buquês Premium</Link></li>
+              <li><Link to="/cestas" className="text-white/70 hover:text-floral-gold transition-colors">Cestas Premium</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-floral-gold">Nossas Soluções</h4>
+            <h4 className="text-lg font-semibold mb-4 text-floral-gold">Nossos Produtos</h4>
             <ul className="space-y-2">
-              <FooterNavItem href="#gallery" onClick={() => {
-                const element = document.querySelector('[data-value="coroas"]') as HTMLElement;
-                if (element) element.click();
-              }}>Coroa de Flores</FooterNavItem>
-              <FooterNavItem href="#gallery" onClick={() => {
-                const element = document.querySelector('[data-value="buques"]') as HTMLElement;
-                if (element) element.click();
-              }}>Buquê de Flores</FooterNavItem>
-              <FooterNavItem href="#gallery" onClick={() => {
-                const element = document.querySelector('[data-value="cestas"]') as HTMLElement;
-                if (element) element.click();
-              }}>Cestas & Presentes</FooterNavItem>
+              <li><Link to="/coroas" className="text-white/70 hover:text-floral-gold transition-colors">Coroa de Flores</Link></li>
+              <li><Link to="/buques" className="text-white/70 hover:text-floral-gold transition-colors">Buquê de Flores</Link></li>
+              <li><Link to="/cestas" className="text-white/70 hover:text-floral-gold transition-colors">Cestas & Presentes</Link></li>
             </ul>
           </div>
 
@@ -126,54 +117,5 @@ const Footer = () => {
     </footer>
   );
 };
-
-interface FooterNavItemProps {
-  href: string;
-  children: React.ReactNode;
-  onClick?: () => void;
-}
-
-const FooterNavItem = ({ href, children, onClick }: FooterNavItemProps) => (
-  <li>
-    <a
-      href={href}
-      onClick={(e) => {
-        if (onClick) {
-          e.preventDefault();
-          const element = document.querySelector(href);
-          if (element) {
-            element.scrollIntoView({
-              behavior: 'smooth'
-            });
-          }
-          setTimeout(onClick, 800);
-        }
-      }}
-      className="text-white/70 hover:text-floral-gold transition-colors duration-200"
-    >
-      {children}
-    </a>
-  </li>
-);
-
-interface FooterSocialLinkProps {
-  href: string;
-  'aria-label': string;
-  icon?: React.ReactNode;
-  highlight?: boolean;
-}
-
-const FooterSocialLink = ({ highlight, ...props }: FooterSocialLinkProps) => (
-  <a
-    {...props}
-    className={`inline-flex items-center justify-center w-8 h-8 rounded-full transition-all duration-300 ${
-      highlight 
-        ? "bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 animate-pulse shadow-lg" 
-        : "bg-white/20 hover:bg-floral-gold/80"
-    }`}
-  >
-    {props.icon}
-  </a>
-);
 
 export default Footer;
