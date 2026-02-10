@@ -4,8 +4,7 @@ import ProductGallery from '@/components/ProductGallery';
 import { coroas } from '@/data/products';
 
 const GallerySection = () => {
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-  const previewImages = coroas.slice(0, isMobile ? 4 : 8);
+  const previewImages = coroas.slice(0, 8);
 
   return (
     <section id="gallery" className="py-16 bg-muted/30">

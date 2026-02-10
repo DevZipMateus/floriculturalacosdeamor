@@ -83,7 +83,7 @@ html {
   }
   
   a, button {
-    @apply min-h-[44px];
+    @apply min-h-[44px] flex items-center;
   }
   
   [data-radix-sheet-content] {
