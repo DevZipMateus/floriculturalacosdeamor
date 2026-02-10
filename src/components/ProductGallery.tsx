@@ -15,6 +15,9 @@ const ProductGallery = ({ images, categoryName }: ProductGalleryProps) => {
             alt={`${categoryName} - Modelo ${index + 1}`}
             className="w-full h-64 object-cover"
             loading="lazy"
+            width="400"
+            height="256"
+            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
           />
           <div className="p-3">
             <a

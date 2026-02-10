@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 import VSharp from "vite-plugin-vsharp";
+import { imageOptimizer } from "./src/plugins/imageOptimizer";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -18,6 +19,7 @@ export default defineConfig(({ mode }) => ({
       ".jpeg": { quality: 70 },
       ".png": { quality: 70, palette: true },
     }),
+    imageOptimizer(),
   ].filter(Boolean),
   resolve: {
     alias: {
