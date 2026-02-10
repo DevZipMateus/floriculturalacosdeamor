@@ -10,10 +10,11 @@ const HeroSection = () => {
         <img 
           src="/lovable-uploads/0dd19fca-bf41-4be4-a013-62ec6a179982.png" 
           alt="Coroas de flores para velório" 
-          className="w-full h-full object-cover"
-          width="1920"
-          height="1080"
-          fetchPriority="high"
+           className="w-full h-full object-cover"
+           width="1920"
+           height="1080"
+           fetchPriority="high"
+           sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40"></div>
       </div>
