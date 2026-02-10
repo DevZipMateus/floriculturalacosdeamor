@@ -1,46 +1,58 @@
 
+# Melhorar Performance Mobile (de 53 para 80+)
 
-# Otimizar Performance do Site - Corrigir Imagens e Lighthouse
+## Problemas Identificados
 
-## Problema Principal
-As imagens na pasta `public/galeria/` nao estao sendo comprimidas porque o `vite-plugin-vsharp` so processa arquivos importados pelo JavaScript/CSS -- arquivos na pasta `public/` sao copiados diretamente para `dist/` sem nenhum processamento.
+Os principais gargalos no mobile sao:
 
-Por isso o Lighthouse mostra imagens de 300-390 KiB sendo servidas sem compressao e em tamanho muito maior que o necessario (1200x1260px para exibicao em 244x325px).
+1. **TBT de 1000ms**: Todo o JavaScript da pagina carrega de uma vez -- Header, Hero, Galeria (8 imagens), Depoimentos, Contato, Footer. No mobile, isso e muito trabalho para a thread principal.
+2. **LCP de 4.6s**: A imagem hero e um PNG de 163 KiB e as 8 imagens da galeria comecam a carregar simultaneamente.
+3. **FCP de 3.0s**: O bundle JS e grande demais para o carregamento inicial.
+4. **CSS problematico**: A regra global `a, button { min-h-[44px] flex items-center }` aplica `display: flex` em TODOS os links e botoes, causando reflows desnecessarios e possiveis problemas de layout.
 
 ## Solucao
 
-### 1. Criar um plugin Vite customizado para processar imagens do public/
-Criar um plugin que usa `sharp` diretamente para comprimir e redimensionar todas as imagens JPEG/JPG/PNG na pasta de saida (`dist/`) apos o build. Isso inclui:
-- Redimensionar para no maximo 800px de largura (suficiente para telas retina)
-- Comprimir JPEG com qualidade 70
-- Comprimir PNG com qualidade 70
+### 1. Lazy load de secoes abaixo da dobra (maior impacto)
+Carregar GallerySection, TestimonialsSection e ContactSection apenas quando o usuario rolar ate elas, usando `React.lazy` + `Suspense` + Intersection Observer.
 
-### 2. Adicionar width/height nas imagens da galeria
-O Lighthouse aponta que as imagens nao tem `width` e `height` explicitas, causando CLS (mudanca de layout). Adicionar essas propriedades no componente `ProductGallery`.
+### 2. Reduzir imagens na galeria inicial no mobile
+Mostrar apenas 4 imagens no mobile (em vez de 8), reduzindo pela metade o peso da galeria na pagina inicial.
 
-### 3. Adicionar atributo sizes para imagens responsivas
-Informar ao navegador o tamanho real de exibicao para que ele baixe uma versao mais adequada quando possivel.
+### 3. Corrigir CSS global problematico
+Substituir a regra `a, button { min-h-[44px] flex items-center }` por uma regra mais especifica que nao force `display: flex` em todos os elementos interativos.
+
+### 4. Defer do Google Tag Manager
+Adicionar `defer` ao script do GTM para nao bloquear a renderizacao inicial.
 
 ## Alteracoes
 
 | Arquivo | O que muda |
 |---------|-----------|
-| `src/plugins/imageOptimizer.ts` | Novo - Plugin Vite customizado que usa sharp para comprimir imagens na pasta dist/ apos o build |
-| `vite.config.ts` | Importar e usar o novo plugin customizado |
-| `src/components/ProductGallery.tsx` | Adicionar `width`, `height` e `sizes` nas tags `img` |
-| `src/components/HeroSection.tsx` | Adicionar `sizes` na imagem hero |
+| `src/pages/Index.tsx` | Lazy load de GallerySection, TestimonialsSection e ContactSection com Intersection Observer |
+| `src/components/GallerySection.tsx` | Mostrar 4 imagens no mobile, 8 no desktop |
+| `src/index.css` | Corrigir regra CSS global que aplica flex em todos os links/botoes |
+| `index.html` | Adicionar `defer` no script do GTM |
 
 ## Detalhes tecnicos
 
-O plugin customizado funciona no hook `closeBundle` do Vite, que executa apos todos os arquivos serem escritos em `dist/`. Ele varre a pasta de saida buscando arquivos `.jpg`, `.jpeg` e `.png`, e usa a biblioteca `sharp` (ja instalada) para redimensionar e comprimir cada imagem in-place.
+Criar um componente `LazySection` reutilizavel que usa Intersection Observer para montar o conteudo apenas quando visivel:
 
-```text
-Build Flow:
-  Vite copia public/ para dist/
-  --> vsharp comprime assets importados
-  --> plugin customizado comprime TODAS as imagens em dist/
-  --> resultado final com imagens otimizadas
+```typescript
+const LazySection = ({ children }) => {
+  const [visible, setVisible] = useState(false);
+  const ref = useRef(null);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setVisible(true); observer.disconnect(); } },
+      { rootMargin: '200px' }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return <div ref={ref}>{visible ? children : <div style={{minHeight: '400px'}} />}</div>;
+};
 ```
 
-Isso deve reduzir o tamanho das imagens de ~300-390 KiB para ~30-60 KiB cada, uma economia de mais de 80%.
-
+Isso reduz significativamente o TBT porque o navegador nao precisa processar componentes que o usuario ainda nao viu, e reduz o LCP porque menos imagens competem pela largura de banda.
